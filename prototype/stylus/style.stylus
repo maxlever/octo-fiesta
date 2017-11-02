@@ -1,0 +1,83 @@
+ul,li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  // text-align: center;
+}
+.header{
+  width: 100%;
+  height: 30px;
+  background: lightblue;
+}
+
+  .container{
+    flex: 1 0 auto;
+    display: flex;
+
+    .content{
+      flex: 1 0 auto;
+      background: grey;
+      position: relative;
+    }
+    .canvas-wrapper {
+      position: relative;
+      border 1px solid black;
+      m = 20px;
+      margin: m;
+      max-height: calc(100% - m*2);
+      max-width: calc(100% - m*2);
+      height: 300px;
+      width: 500px;
+    }
+    canvas{
+      background white;
+      width: 100%;
+      height: 100%;
+    }
+
+    .toolbar{
+      width: 110px;
+      margin: 0;
+      text-align: left;
+      order: -1;
+      background: lightblue;
+      .tools {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0 0 10px;
+        
+        li {
+          width: 40px;
+          margin-left: 10px;
+          height: 40px;
+          background white;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    .menu-item {
+      width: 50px;
+      background lightgrey;
+      padding: 10px;
+    }
+  }
+
+  .footer{
+    padding: 10px;
+    width: 100%;
+    height: 60px;
+    background: cyan;
+  }
