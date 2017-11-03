@@ -58,6 +58,13 @@ body {
   background: #fff;
   margin-top: 10px;
 }
+
+.container .toolbar .tools li input {
+  height: 30px;
+  margin:5px;
+  width: 30px;
+}
+
 .menu {
   display: flex;
   flex-wrap: wrap;

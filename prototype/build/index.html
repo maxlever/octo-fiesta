@@ -3,100 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <title>Unterface</title>
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-  
-      <style>
-      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-      ul,
-li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-.header {
-  width: 100%;
-  height: 30px;
-  background: #add8e6;
-}
-.container {
-  flex: 1 0 auto;
-  display: flex;
-}
-.container .content {
-  flex: 1 0 auto;
-  background: #808080;
-  position: relative;
-}
-.container .canvas-wrapper {
-  position: relative;
-  border: 1px solid #000;
-  margin: 20px;
-  max-height: calc(100% - m * 2);
-  max-width: calc(100% - m * 2);
-  height: 300px;
-  width: 500px;
-}
-.container canvas {
-  background: #fff;
-  width: 100%;
-  height: 100%;
-}
-.container .toolbar {
-  width: 110px;
-  margin: 0;
-  text-align: left;
-  order: -1;
-  background: #add8e6;
-}
-.container .toolbar .tools {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0 0 10px;
-}
-.container .toolbar .tools li {
-  width: 40px;
-  margin-left: 10px;
-  height: 40px;
-  background: #fff;
-  margin-top: 10px;
-}
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-}
-.menu .menu-item {
-  width: 50px;
-  background: #d3d3d3;
-  padding: 10px;
-}
-.footer {
-  padding: 10px;
-  width: 100%;
-  height: 60px;
-  background: #0ff;
-}
-
-    </style>
-
+  <style>
+    /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+    ul, li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .header {
+      width: 100%;
+      height: 30px;
+      background: #add8e6;
+    }
+    .container {
+      flex: 1 0 auto;
+      display: flex;
+    }
+    .container .content {
+      flex: 1 0 auto;
+      background: #808080;
+      position: relative;
+    }
+    .container .canvas-wrapper {
+      position: relative;
+      border: 1px solid #000;
+      margin: 20px;
+      max-height: calc(100% - m * 2);
+      max-width: calc(100% - m * 2);
+      height: 300px;
+      width: 500px;
+    }
+    .container canvas {
+      background: #fff;
+      width: 100%;
+      height: 100%;
+    }
+    .container .toolbar {
+      width: 110px;
+      margin: 0;
+      text-align: left;
+      order: -1;
+      background: #add8e6;
+    }
+    .container .toolbar .tools {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0 0 10px;
+    }
+    .container .toolbar .tools li {
+      width: 40px;
+      margin-left: 10px;
+      height: 40px;
+      background: #fff;
+      margin-top: 10px;
+    }
+    .container .toolbar .tools li input {
+      height: 30px;
+      margin:5px;
+      width: 30px;
+    }
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .menu .menu-item {
+      width: 50px;
+      background: #d3d3d3;
+      padding: 10px;
+    }
+    .footer {
+      padding: 10px;
+      width: 100%;
+      height: 60px;
+      background: #0ff;
+    }
+  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-
 </head>
 
 <body>
-  
 <header class="header">
   <ul class="menu">
-    <li class="menu-item">file</li>
-    <li class="menu-item">edit</li>
+    <li class="menu-item">File</li>
+    <li class="menu-item">Edit</li>
   </ul>
 </header>
 <div class="container">
@@ -107,12 +104,13 @@ body {
   </div>
   <div class="toolbar">
     <ul class="tools">
-      <li class="tool">t1</li>
-      <li class="tool">t2</li>
-      <li class="tool">t3</li>
-      <li class="tool">t4</li>
-      <li class="tool">t5</li>
-      <li class="tool">t6</li>
+      <li class="tool"><input type="image" id="pencil" src="../images/pencil.png"/></li>
+      <li class="tool"><input type="image" id="eraser" src="../images/eraser.png"/></li>
+      <li class="tool"><input type="image" id="scale" src="../images/scale.png"/></li>
+      <li class="tool"><input type="image" id="paint-bucket" src="../images/paint-bucket.png"/></li>
+      <li class="tool"><input type="image" id="text" src="../images/text.png"/></li>
+      <li class="tool"><input type="image" id="diagonal-line" src="../images/diagonal-line.png"/></li>
+
     </ul>
   </div>
 </div>
@@ -120,7 +118,5 @@ body {
   <div class="palette">palette</div>
 </footer>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-
-  
 </body>
 </html>

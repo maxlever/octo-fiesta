@@ -53,18 +53,24 @@ body{
         flex-wrap: wrap;
         margin: 0;
         padding: 0 0 10px;
-        
+
         li {
           width: 40px;
           margin-left: 10px;
           height: 40px;
           background white;
           margin-top: 10px;
+
+          input {
+            height: 30px;
+            margin: 5px;
+            width: 30px;
+          }
         }
       }
     }
   }
-  
+
   .menu {
     display: flex;
     flex-wrap: wrap;
