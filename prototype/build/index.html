@@ -36,8 +36,8 @@
       margin: 20px;
       max-height: calc(100% - m * 2);
       max-width: calc(100% - m * 2);
-      height: 300px;
-      width: 500px;
+      height: 500px;
+      width: 800px;
     }
     .container canvas {
       background: #fff;
@@ -86,11 +86,11 @@
       background: #0ff;
     }
   </style>
-  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="../js/index.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
 
-<body>
+<body onload="init()">
 <header class="header">
   <ul class="menu">
     <li class="menu-item">File</li>
@@ -100,7 +100,7 @@
 <div class="container">
   <div class="content">
     <div class="canvas-wrapper">
-      <canvas id="canvas" height="50"></canvas>
+      <canvas id="can" width="400" height="400"></canvas>
     </div>
   </div>
   <div class="toolbar">
@@ -120,7 +120,7 @@
 </footer>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 </body>
- <body onload="init()">
+ <!-- <body onload="init()">
         <canvas id="can" width="400" height="400" style="position:absolute;top:10%;left:10%;border:2px solid;"></canvas>
         <div style="position:absolute;top:12%;left:43%;">Choose Color</div>
         <div style="position:absolute;top:15%;left:45%;width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
@@ -134,5 +134,5 @@
         <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
         <input type="button" value="save" id="btn" size="30" onclick="save()" style="position:absolute;top:55%;left:10%;">
         <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;">
-    </body>
+    </body> -->
 </html>
