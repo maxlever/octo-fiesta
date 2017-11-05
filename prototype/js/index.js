@@ -10,25 +10,35 @@ function init() {
 
 }
 
-// //figure out which item is selected
-// function selectedItem(obj) {
-//   switch (obj.id) {
-//     case "pencil":
-//       pencilSelected();
-//       break;
-//     case "eraser":
-//       eraserSelected();
-//       break;
-//     case "select":
-//       break;
-//     case "paint-bucket":
-//       break;
-//     case "text":
-//       break;
-//     case "diagonal-line":
-//       break;
-//   }
-// }
+//do we need this?
+function changeColor(obj) {
+  switch (obj.id) {
+    case "green":
+      color = "green";
+      console.log("color is green");
+      break;
+    case "blue":
+      color = "blue";
+      console.log("color is blue");
+      break;
+    case "red":
+      color = "red";
+      console.log("color is red");
+      break;
+    case "yellow":
+      color = "yellow";
+      console.log("color is yellow");
+      break;
+    case "orange":
+      color = "orange";
+      console.log("color is orange");
+      break;
+    case "black":
+      color = "black";
+      console.log("color is black");
+      break;
+  }
+}
 
 //draw function
 function pencilSelected() {
@@ -118,28 +128,4 @@ function eraserSelected() {
   canvas.addEventListener("mouseout", function (e) {
       findxy("out", e)
   }, false);
-}
-
-//do we need this?
-function color(obj) {
-  switch (obj.id) {
-    case "green":
-      color = "green";
-      break;
-    case "blue":
-      color = "blue";
-      break;
-    case "red":
-      color = "red";
-      break;
-    case "yellow":
-      color = "yellow";
-      break;
-    case "orange":
-      color = "orange";
-      break;
-    case "black":
-      color = "black";
-      break;
-  }
 }
