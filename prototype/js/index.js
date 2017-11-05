@@ -158,3 +158,19 @@ function lineSelected() {
   console.log("line is selected");
   //TODO: finish this
 }
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function fileMenu() {
+    document.getElementById("fileDropDown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.file-dropbtn')) {
+    var fileDropDown = document.getElementById("fileDropDown");
+      if (fileDropDown.classList.contains('show')) {
+        fileDropDown.classList.remove('show');
+      }
+  }
+}

@@ -71,6 +71,33 @@
       margin:5px;
       width: 30px;
     }
+
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .show {
+      display:block;
+    }
     .menu {
       display: flex;
       flex-wrap: wrap;
@@ -98,6 +125,66 @@
       width: 40px;
     }
 
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        font-family: Arial;
+    }
+
+    .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+    .dropdown .file-dropbtn {
+        cursor: pointer;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+    }
+
+    .navbar a:hover, .dropdown:hover .file-dropbtn {
+        background-color: red;
+    }
+
+    .file-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .file-dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .file-dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .show {
+        display: block;
+    }
+
   </style>
   <script type="text/javascript" src="../js/index.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
@@ -105,10 +192,18 @@
 
 <body onload="init()">
 <header class="header">
-  <ul class="menu">
-    <li class="menu-item">File</li>
-    <li class="menu-item">Edit</li>
-  </ul>
+  <div class="navbar">
+    <div class="dropdown">
+      <button class="file-dropbtn" onclick="fileMenu()">File
+      </button>
+      <div class="file-dropdown-content" id="fileDropDown">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+    <a href="#editMenu">Edit</a>
+  </div>
 </header>
 <div class="container">
   <div class="content">
