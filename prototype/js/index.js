@@ -2,110 +2,117 @@
 
  var color = "black", lineWidth = 2;
 
- function init() {
-     canvas = document.getElementById("can");
-     ctx = canvas.getContext("2d");
-     w = canvas.width;
-     h = canvas.height;
+function init() {
+ canvas = document.getElementById("can");
+ ctx = canvas.getContext("2d");
+ w = canvas.width;
+ h = canvas.height;
 
-     canvas.addEventListener("mousemove", function (e) {
-         findxy("move", e)
-     }, false);
-     canvas.addEventListener("mousedown", function (e) {
-         findxy("down", e)
-     }, false);
-     canvas.addEventListener("mouseup", function (e) {
-         findxy("up", e)
-     }, false);
-     canvas.addEventListener("mouseout", function (e) {
-         findxy("out", e)
-     }, false);
+}
 
- }
+//figure out which item is selected
+function selectedItem(obj) {
+  switch (obj.id) {
+    case "pencil":
+      pencilSelected();
+      break;
+    case "eraser":
+      break;
+    case "select":
+      break;
+    case "paint-bucket":
+      break;
+    case "text":
+      break;
+    case "diagonal-line":
+      break;
+  }
+}
 
- function color(obj) {
-     switch (obj.id) {
-         case "green":
-             x = "green";
-             break;
-         case "blue":
-             x = "blue";
-             break;
-         case "red":
-             x = "red";
-             break;
-         case "yellow":
-             x = "yellow";
-             break;
-         case "orange":
-             x = "orange";
-             break;
-         case "black":
-             x = "black";
-             break;
-         case "white":
-             x = "white";
-             break;
-     }
-     if (x == "white") y = 14;
-     else y = 2;
+//draw function
+function pencilSelected() {
+  console.log("pencil was selected");
+  canvas.addEventListener("mousemove", function (e) {
+      findxy("move", e)
+  }, false);
+  canvas.addEventListener("mousedown", function (e) {
+      findxy("down", e)
+  }, false);
+  canvas.addEventListener("mouseup", function (e) {
+      findxy("up", e)
+  }, false);
+  canvas.addEventListener("mouseout", function (e) {
+      findxy("out", e)
+  }, false);
+}
 
- }
+function findxy(res, e) {
+ var rect = canvas.getBoundingClientRect();
 
- function draw() {
-     ctx.beginPath();
-     ctx.moveTo(prevX, prevY);
-     ctx.lineTo(currX, currY);
-     ctx.strokeStyle = color;
-     ctx.lineWidth = lineWidth;
-     ctx.stroke();
-     ctx.closePath();
- }
+   if (res == "down") {
+       prevX = currX;
+       prevY = currY;
+       currX = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
+       currY = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
 
- // function erase() {
- //     var m = confirm("Want to clear");
- //     if (m) {
- //         ctx.clearRect(0, 0, w, h);
- //         document.getElementById("canvasimg").style.display = "none";
- //     }
- // }
+       flag = true;
+       dot_flag = true;
+       if (dot_flag) {
+           ctx.beginPath();
+           ctx.fillStyle = color;
+           ctx.fillRect(currX, currY, 2, 2);
+           ctx.closePath();
+           dot_flag = false;
+       }
+   }
+   if (res == "up" || res == "out") {
+       flag = false;
+   }
+   if (res == "move") {
+       if (flag) {
+           prevX = currX;
+           prevY = currY;
+           currX = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
+           currY = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
+           draw();
+       }
+   }
+}
 
- // function save() {
- //     document.getElementById("canvasimg").style.border = "2px solid";
- //     var dataURL = canvas.toDataURL();
- //     document.getElementById("canvasimg").src = dataURL;
- //     document.getElementById("canvasimg").style.display = "inline";
- // }
+function draw() {
+   ctx.beginPath();
+   ctx.moveTo(prevX, prevY);
+   ctx.lineTo(currX, currY);
+   ctx.strokeStyle = color;
+   ctx.lineWidth = lineWidth;
+   ctx.stroke();
+   ctx.closePath();
+}
 
- function findxy(res, e) {
-   var rect = canvas.getBoundingClientRect();
 
-     if (res == "down") {
-         prevX = currX;
-         prevY = currY;
-         currX = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
-         currY = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
-
-         flag = true;
-         dot_flag = true;
-         if (dot_flag) {
-             ctx.beginPath();
-             ctx.fillStyle = x;
-             ctx.fillRect(currX, currY, 2, 2);
-             ctx.closePath();
-             dot_flag = false;
-         }
-     }
-     if (res == "up" || res == "out") {
-         flag = false;
-     }
-     if (res == "move") {
-         if (flag) {
-             prevX = currX;
-             prevY = currY;
-             currX = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
-             currY = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
-             draw();
-         }
-     }
- }
+//do we need this?
+function color(obj) {
+    switch (obj.id) {
+        case "green":
+            color = "green";
+            break;
+        case "blue":
+            color = "blue";
+            break;
+        case "red":
+            color = "red";
+            break;
+        case "yellow":
+            color = "yellow";
+            break;
+        case "orange":
+            color = "orange";
+            break;
+        case "black":
+            color = "black";
+            break;
+        case "white":
+            color = "white";
+            break;
+    }
+}
