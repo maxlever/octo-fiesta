@@ -62,13 +62,13 @@
      ctx.closePath();
  }
 
- function erase() {
-     var m = confirm("Want to clear");
-     if (m) {
-         ctx.clearRect(0, 0, w, h);
-         document.getElementById("canvasimg").style.display = "none";
-     }
- }
+ // function erase() {
+ //     var m = confirm("Want to clear");
+ //     if (m) {
+ //         ctx.clearRect(0, 0, w, h);
+ //         document.getElementById("canvasimg").style.display = "none";
+ //     }
+ // }
 
  // function save() {
  //     document.getElementById("canvasimg").style.border = "2px solid";

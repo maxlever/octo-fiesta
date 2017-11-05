@@ -85,6 +85,18 @@
       height: 60px;
       background: #0ff;
     }
+
+    .footer .palette {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .footer .palette .color {
+      height: 40px;
+      margin: 0 5px 0 5px;
+      width: 40px;
+    }
+
   </style>
   <script type="text/javascript" src="../js/index.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
@@ -116,7 +128,15 @@
   </div>
 </div>
 <footer class="footer">
-  <div class="palette">palette</div>
+  <div class="palette">
+    Palette
+    <div class=color style="background:green;" id="green" onclick="color(this)"></div>
+    <div class=color style="background:blue;" id="blue" onclick="color(this)"></div>
+    <div class=color style="background:red;" id="red" onclick="color(this)"></div>
+    <div class=color style="background:yellow;" id="yellow" onclick="color(this)"></div>
+    <div class=color style="background:orange;" id="orange" onclick="color(this)"></div>
+    <div class=color style="background:black;" id="black" onclick="color(this)"></div>
+  </div>
 </footer>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 </body>
