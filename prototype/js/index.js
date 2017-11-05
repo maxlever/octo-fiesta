@@ -139,10 +139,20 @@ function paintbucketSelected() {
 }
 
 function textSelected() {
-  //TODO: finish this
-  ctx.font = "20px Georgia";
-  ctx.fillText("Hello World!", 10, 50);
+  //TODO: finish this //this does not work
+  console.log()
+
+  canvas.addEventListener("mousedown", function (e) {
+    ctx.font = "15px Arial";
+    ctx.fillText("Add Text Here", 15, 30);
+
+    var div = document.createElement("div");
+    canvas.appendChild(div);
+    div.setAttribute("contenteditable","true");
+
+  }, false);
 }
+
 
 function lineSelected() {
   console.log("line is selected");
