@@ -105,6 +105,7 @@ function draw() {
 //eraser function
 function eraserSelected() {
   console.log("eraser is selected");
+  lineWidth = 3;
   color = canvas.style.backgroundColor;
   if(color === "") {
     console.log("background is white");
@@ -128,4 +129,22 @@ function eraserSelected() {
   canvas.addEventListener("mouseout", function (e) {
       findxy("out", e)
   }, false);
+}
+
+function selectSelected() {
+  //TODO: finish this
+}
+function paintbucketSelected() {
+  //TODO: finish this
+}
+
+function textSelected() {
+  //TODO: finish this
+  ctx.font = "20px Georgia";
+  ctx.fillText("Hello World!", 10, 50);
+}
+
+function lineSelected() {
+  console.log("line is selected");
+  //TODO: finish this
 }

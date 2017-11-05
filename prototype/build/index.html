@@ -44,6 +44,7 @@
       width: 100%;
       height: 100%;
     }
+
     .container .toolbar {
       width: 110px;
       margin: 0;
@@ -119,10 +120,10 @@
     <ul class="tools">
       <li class="tool"><input type="image" id="pencil" onclick= "pencilSelected()" src="../images/pencil.png"/></li>
       <li class="tool"><input type="image" id="eraser" onclick= "eraserSelected()" src="../images/eraser.png"/></li>
-      <li class="tool"><input type="image" id="select" src="../images/scale.png"/></li>
-      <li class="tool"><input type="image" id="paint-bucket" src="../images/paint-bucket.png"/></li>
-      <li class="tool"><input type="image" id="text" src="../images/text.png"/></li>
-      <li class="tool"><input type="image" id="diagonal-line" src="../images/diagonal-line.png"/></li>
+      <li class="tool"><input type="image" id="select" onclick="selectSelected()" src="../images/scale.png"/></li>
+      <li class="tool"><input type="image" id="paint-bucket" onclick="paintbucketSelected()" src="../images/paint-bucket.png"/></li>
+      <li class="tool"><input type="image" id="text" onclick= "textSelected()" src="../images/text.png"/></li>
+      <li class="tool"><input type="image" id="diagonal-line" onclick="lineSelected()" src="../images/diagonal-line.png"/></li>
 
     </ul>
   </div>
