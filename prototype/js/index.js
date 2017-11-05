@@ -10,28 +10,29 @@ function init() {
 
 }
 
-//figure out which item is selected
-function selectedItem(obj) {
-  switch (obj.id) {
-    case "pencil":
-      pencilSelected();
-      break;
-    case "eraser":
-      break;
-    case "select":
-      break;
-    case "paint-bucket":
-      break;
-    case "text":
-      break;
-    case "diagonal-line":
-      break;
-  }
-}
+// //figure out which item is selected
+// function selectedItem(obj) {
+//   switch (obj.id) {
+//     case "pencil":
+//       pencilSelected();
+//       break;
+//     case "eraser":
+//       eraserSelected();
+//       break;
+//     case "select":
+//       break;
+//     case "paint-bucket":
+//       break;
+//     case "text":
+//       break;
+//     case "diagonal-line":
+//       break;
+//   }
+// }
 
 //draw function
 function pencilSelected() {
-  console.log("pencil was selected");
+  console.log("pencil is selected");
   canvas.addEventListener("mousemove", function (e) {
       findxy("move", e)
   }, false);
@@ -46,6 +47,7 @@ function pencilSelected() {
   }, false);
 }
 
+//find where mouse is
 function findxy(res, e) {
  var rect = canvas.getBoundingClientRect();
 
@@ -79,6 +81,7 @@ function findxy(res, e) {
    }
 }
 
+
 function draw() {
    ctx.beginPath();
    ctx.moveTo(prevX, prevY);
@@ -89,30 +92,54 @@ function draw() {
    ctx.closePath();
 }
 
+//eraser function
+function eraserSelected() {
+  console.log("eraser is selected");
+  color = canvas.style.backgroundColor;
+  if(color === "") {
+    console.log("background is white");
+    color = "white";
+  }
+  else {
+    color = canvas.style.backgroundColor;
+    console.log("background is not white");
+
+  }
+
+  canvas.addEventListener("mousemove", function (e) {
+      findxy("move", e)
+  }, false);
+  canvas.addEventListener("mousedown", function (e) {
+      findxy("down", e)
+  }, false);
+  canvas.addEventListener("mouseup", function (e) {
+      findxy("up", e)
+  }, false);
+  canvas.addEventListener("mouseout", function (e) {
+      findxy("out", e)
+  }, false);
+}
 
 //do we need this?
 function color(obj) {
-    switch (obj.id) {
-        case "green":
-            color = "green";
-            break;
-        case "blue":
-            color = "blue";
-            break;
-        case "red":
-            color = "red";
-            break;
-        case "yellow":
-            color = "yellow";
-            break;
-        case "orange":
-            color = "orange";
-            break;
-        case "black":
-            color = "black";
-            break;
-        case "white":
-            color = "white";
-            break;
-    }
+  switch (obj.id) {
+    case "green":
+      color = "green";
+      break;
+    case "blue":
+      color = "blue";
+      break;
+    case "red":
+      color = "red";
+      break;
+    case "yellow":
+      color = "yellow";
+      break;
+    case "orange":
+      color = "orange";
+      break;
+    case "black":
+      color = "black";
+      break;
+  }
 }
