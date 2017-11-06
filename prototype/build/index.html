@@ -1,280 +1,75 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Unterface</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <style>
-    /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-    ul, li {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      background: #fff;
-    }
-    .header {
-      width: 100%;
-      background: #ece9d9;
-    }
-    .container {
-      flex: 1 0 auto;
-      display: flex;
-    }
-    .container .content {
-      flex: 1 0 auto;
-      background: #8e8e8e;
-      position: relative;
-    }
-    .container .canvas-wrapper {
-      position: relative;
-      border: 1px solid #fff;
-      margin: 20px;
-      max-height: calc(100% - m * 2);
-      max-width: calc(100% - m * 2);
-      height: 500px;
-      width: 800px;
-    }
-    .container canvas {
-      background: #fff;
-      width: 100%;
-      height: 100%;
-    }
-
-    .container .toolbar {
-      width: 110px;
-      margin: 0;
-      text-align: left;
-      order: -1;
-      background: #ece9d9;
-    }
-    .container .toolbar .tools {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0 0 10px;
-    }
-    .container .toolbar .tools li {
-      width: 40px;
-      margin-left: 10px;
-      height: 40px;
-      background: #fff;
-      margin-top: 10px;
-    }
-    .container .toolbar .tools li input {
-      height: 30px;
-      margin:5px;
-      width: 30px;
-    }
-
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-
-    .show {
-      display:block;
-    }
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .menu .menu-item {
-      width: 50px;
-      background: #d3d3d3;
-      padding: 10px;
-    }
-    .footer {
-      padding: 10px;
-      width: 100% - 40px;
-      height: 60px;
-      background: #ece9d9;
-      border-top: 1px solid #8e8e8e;
-    }
-
-    .footer .palette {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .footer .palette .color {
-      height: 20px;
-      margin: 0 5px 0 5px;
-      width: 20px;
-      box-shadow: inset 2px 2px 0px 0px #000;
-    }
-
-    #colorPickerDisplay {
-      height: 45px;
-      width: 45px;
-      background: #f9f5f2;
-    }
-
-    #colorPickerDisplay > .color {
-      position: relative;
-      margin-left: 8px;
-      margin-top: 10px;
-      z-index: 10;
-    }
-    #colorPickerDisplay > .color:nth-child(2) {
-      position: relative;
-      margin-left: 18px;
-      margin-top: -13px;
-      z-index: 1;
-    }
-
-    .navbar {
-        overflow: hidden;
-        background-color: #ece9d9;
-        font-family: Arial;
-        color: #000;
-        border-bottom: 1px solid #8e8e8e;
-    }
-
-    .navbar a {
-        float: left;
-        font-size: 16px;
-        color: #000;
-        text-align: center;
-        padding: 5px 16px;
-        text-decoration: none;
-        border: 1px solid #ece9d9;
-    }
-
-    .dropdown {
-        float: left;
-        overflow: hidden;
-    }
-
-    .dropdown .file-dropbtn {
-        cursor: pointer;
-        font-size: 16px;
-        border: none;
-        outline: none;
-        color: #000;
-        padding: 5px 16px;
-        background: inherit;
-        border: 1px solid #ece9d9;
-    }
-
-    .navbar a:hover, .dropdown:hover .file-dropbtn {
-        background-color: #f9f5f2;
-    }
-
-    .file-dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    .file-dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-
-    .file-dropdown-content a:hover {
-        background-color: #ddd;
-    }
-
-    .show {
-        display: block;
-    }
-
-    #topbar {
-      width: 100% - 2px;
-      height: 30px;
-      background: #2f5db5;
-      background: linear-gradient(#2e8cf9, #2f5db5, #2f5db5, #136ef6);
-      border-radius: 4px 4px 0px 0px;
-      border-color: #1644af;
-      border-width: 1px;
-      border-style: solid;
-    }
-
-  </style>
-  <script type="text/javascript" src="../js/index.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <title>Unterface</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="init()">
-<header class="header">
-  <div id="topbar"></div>
-  <div class="navbar">
-    <div class="dropdown">
-      <button class="file-dropbtn" onclick="fileMenu()">File
-      </button>
-      <div class="file-dropdown-content" id="fileDropDown">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-    </div>
-    <a href="#editMenu">Edit</a>
-  </div>
-</header>
-<div class="container">
-  <div class="content">
-    <div class="canvas-wrapper">
-      <canvas id="can" width="400" height="400"></canvas>
-    </div>
-  </div>
-  <div class="toolbar">
-    <ul class="tools">
-      <li class="tool"><input type="image" id="pencil" onclick= "pencilSelected()" src="../images/pencil.png"/></li>
-      <li class="tool"><input type="image" id="eraser" onclick= "eraserSelected()" src="../images/eraser.png"/></li>
-      <li class="tool"><input type="image" id="select" onclick="selectSelected()" src="../images/scale.png"/></li>
-      <li class="tool"><input type="image" id="paint-bucket" onclick="paintbucketSelected()" src="../images/paint-bucket.png"/></li>
-      <li class="tool"><input type="image" id="text" onclick= "textSelected()" src="../images/text.png"/></li>
-      <li class="tool"><input type="image" id="diagonal-line" onclick="lineSelected()" src="../images/diagonal-line.png"/></li>
+<body>
+    <header class="header">
+    </header>
+    <main>
+        <div class="container">
+            <div class="content">
+                <div class="canvas-wrapper">
+                    <canvas id="canvas" height="50"></canvas>
+                </div>
+            </div>
+            <div class="toolbar">
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+    </footer>
 
-    </ul>
-  </div>
-</div>
-<footer class="footer">
-  <div class="palette">
-    <div class="color" id="colorPickerDisplay">
-      <div class=color style="background:black;" onclick="changeColor(this)"></div>
-      <div class=color style="background:white;" onclick="changeColor(this)"></div>
-    </div>
-    <div class=color style="background:green;" id="green" onclick="changeColor(this)"></div>
-    <div class=color style="background:blue;" id="blue" onclick="changeColor(this)"></div>
-    <div class=color style="background:red;" id="red" onclick="changeColor(this)"></div>
-    <div class=color style="background:yellow;" id="yellow" onclick="changeColor(this)"></div>
-    <div class=color style="background:orange;" id="orange" onclick="changeColor(this)"></div>
-    <div class=color style="background:black;" id="black" onclick="changeColor(this)"></div>
-    <div class=color style="background:white;" id="white" onclick="changeColor(this)"></div>
-  </div>
-</footer>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script id="menu-partial" type="text/x-handlebars-template">
+        {{#each items}}
+        <li class="menu-item menu-item--{{title}}">
+            <a href="#" class="menu-link">{{title}}</a>
+            {{#if items}}
+            <ul class="submenu">
+                {{> menu}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/each}}
+    </script>
+
+    <script id="header-template" type="text/x-handlebars-template">
+        <ul class="menu">
+            {{> menu}}
+        </ul>
+    </script>
+
+    <script id="toolbar-template" type="text/x-handlebars-template">
+        <ul class="tools">
+            {{#each tools}}
+                <li class="tool"  id="{{this}}">
+                    <div class="tool__img" style="background-image:url(images/{{this}}.png);"></div>
+                </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script id="footer-template" type="text/x-handlebars-template">
+        <div class="palette">
+            <div class="palette__current" style="background:{{currentColor}};">
+            </div>
+            <div class="palette__picker">
+                <ul class="colors">
+                {{#each colors}}
+                    <li class="color" id="{{this}}" style="background:{{this}};"></li>
+                {{/each}}
+                </ul>
+            </div>
+        </div>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
+    <script src="all.js"></script>
 </body>
+
 </html>
