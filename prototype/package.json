@@ -4,18 +4,15 @@
   "description": "",
   "main": "app/index.js",
   "scripts": {
-    "test": "mocha --harmony test/index.js",
-    "jscs": "jscs app/**/*.js",
-    "jshint": "jshint js/**/*",
+    "css": "sass styles/style.sass:build/style.css",
     "serve": "browser-sync start --server . --files 'index.html' 'js/*.js' 'styles/style.css'",
-    "watch": "sass --watch styles/style.sass:styles/style.css",
+    "watch": "sass --watch styles/style.sass:build/style.css",
     "uglify": "uglifyjs --compress --mangle js/*.js -o build/all.js",
     "dev": "parallelshell 'npm run watch' 'npm run serve'",
-    "build": "parallelshell 'npm run css' 'npm run linter && npm run jscs && npm run uglify && npm run test-build'"
+    "build": "parallelshell 'npm run css' 'npm run uglify'"
   },
   "dependencies": {},
   "devDependencies": {
-    "autoprefixer-stylus": "^0.14.0",
     "handlebars": "^4.0.11",
     "jscs": "^1.13.1",
     "jshint": "^2.8.0",
