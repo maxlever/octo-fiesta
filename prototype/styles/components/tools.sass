@@ -1,0 +1,29 @@
+.toolbar
+  width: 110px
+  margin: 0
+  text-align: left
+  order: -1
+  background: lightblue
+
+
+.tools
+  list-style: none
+  display: flex
+  flex-wrap: wrap
+  margin: 0
+  padding: 0 0 10px
+
+
+.tool
+  width: 40px
+  margin-left: 10px
+  height: 40px
+  margin-top: 10px
+  box-sizing: border-box
+  background: white
+  &.selected
+    border: 1px solid black
+  .tool__img
+    height: 100%
+    width: 100%
+    background-size: contain

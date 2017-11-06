@@ -1,0 +1,25 @@
+{
+  "name": "npm-build-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "mocha --harmony test/index.js",
+    "jscs": "jscs app/**/*.js",
+    "jshint": "jshint js/**/*",
+    "serve": "browser-sync start --server . --files 'index.html' 'js/*.js' 'styles/style.css'",
+    "watch": "sass --watch styles/style.sass:styles/style.css",
+    "uglify": "uglifyjs --compress --mangle js/*.js -o build/all.js",
+    "dev": "parallelshell 'npm run watch' 'npm run serve'",
+    "build": "parallelshell 'npm run css' 'npm run linter && npm run jscs && npm run uglify && npm run test-build'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.14.0",
+    "handlebars": "^4.0.11",
+    "jscs": "^1.13.1",
+    "jshint": "^2.8.0",
+    "parallelshell": "^1.2.0",
+    "uglifyjs": "^2.4.10"
+  }
+}
