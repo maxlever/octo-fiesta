@@ -15,11 +15,11 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      background: #fff;
     }
     .header {
       width: 100%;
-      height: 30px;
-      background: #add8e6;
+      background: #ece9d9;
     }
     .container {
       flex: 1 0 auto;
@@ -27,12 +27,12 @@
     }
     .container .content {
       flex: 1 0 auto;
-      background: #808080;
+      background: #8e8e8e;
       position: relative;
     }
     .container .canvas-wrapper {
       position: relative;
-      border: 1px solid #000;
+      border: 1px solid #fff;
       margin: 20px;
       max-height: calc(100% - m * 2);
       max-width: calc(100% - m * 2);
@@ -50,7 +50,7 @@
       margin: 0;
       text-align: left;
       order: -1;
-      background: #add8e6;
+      background: #ece9d9;
     }
     .container .toolbar .tools {
       list-style: none;
@@ -109,9 +109,10 @@
     }
     .footer {
       padding: 10px;
-      width: 100%;
+      width: 100% - 40px;
       height: 60px;
-      background: #0ff;
+      background: #ece9d9;
+      border-top: 1px solid #8e8e8e;
     }
 
     .footer .palette {
@@ -120,24 +121,47 @@
     }
 
     .footer .palette .color {
-      height: 40px;
+      height: 20px;
       margin: 0 5px 0 5px;
-      width: 40px;
+      width: 20px;
+      box-shadow: inset 2px 2px 0px 0px #000;
+    }
+
+    #colorPickerDisplay {
+      height: 45px;
+      width: 45px;
+      background: #f9f5f2;
+    }
+
+    #colorPickerDisplay > .color {
+      position: relative;
+      margin-left: 8px;
+      margin-top: 10px;
+      z-index: 10;
+    }
+    #colorPickerDisplay > .color:nth-child(2) {
+      position: relative;
+      margin-left: 18px;
+      margin-top: -13px;
+      z-index: 1;
     }
 
     .navbar {
         overflow: hidden;
-        background-color: #333;
+        background-color: #ece9d9;
         font-family: Arial;
+        color: #000;
+        border-bottom: 1px solid #8e8e8e;
     }
 
     .navbar a {
         float: left;
         font-size: 16px;
-        color: white;
+        color: #000;
         text-align: center;
-        padding: 14px 16px;
+        padding: 5px 16px;
         text-decoration: none;
+        border: 1px solid #ece9d9;
     }
 
     .dropdown {
@@ -150,13 +174,14 @@
         font-size: 16px;
         border: none;
         outline: none;
-        color: white;
-        padding: 14px 16px;
-        background-color: inherit;
+        color: #000;
+        padding: 5px 16px;
+        background: inherit;
+        border: 1px solid #ece9d9;
     }
 
     .navbar a:hover, .dropdown:hover .file-dropbtn {
-        background-color: red;
+        background-color: #f9f5f2;
     }
 
     .file-dropdown-content {
@@ -185,6 +210,17 @@
         display: block;
     }
 
+    #topbar {
+      width: 100% - 2px;
+      height: 30px;
+      background: #2f5db5;
+      background: linear-gradient(#2e8cf9, #2f5db5, #2f5db5, #136ef6);
+      border-radius: 4px 4px 0px 0px;
+      border-color: #1644af;
+      border-width: 1px;
+      border-style: solid;
+    }
+
   </style>
   <script type="text/javascript" src="../js/index.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
@@ -192,6 +228,7 @@
 
 <body onload="init()">
 <header class="header">
+  <div id="topbar"></div>
   <div class="navbar">
     <div class="dropdown">
       <button class="file-dropbtn" onclick="fileMenu()">File
@@ -225,13 +262,17 @@
 </div>
 <footer class="footer">
   <div class="palette">
-    Palette
+    <div class="color" id="colorPickerDisplay">
+      <div class=color style="background:black;" onclick="changeColor(this)"></div>
+      <div class=color style="background:white;" onclick="changeColor(this)"></div>
+    </div>
     <div class=color style="background:green;" id="green" onclick="changeColor(this)"></div>
     <div class=color style="background:blue;" id="blue" onclick="changeColor(this)"></div>
     <div class=color style="background:red;" id="red" onclick="changeColor(this)"></div>
     <div class=color style="background:yellow;" id="yellow" onclick="changeColor(this)"></div>
     <div class=color style="background:orange;" id="orange" onclick="changeColor(this)"></div>
     <div class=color style="background:black;" id="black" onclick="changeColor(this)"></div>
+    <div class=color style="background:white;" id="white" onclick="changeColor(this)"></div>
   </div>
 </footer>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>

@@ -37,6 +37,10 @@ function changeColor(obj) {
       color = "black";
       console.log("color is black");
       break;
+    case "white":
+      color = "white";
+      console.log("color is white");
+      break;
   }
 }
 
