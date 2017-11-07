@@ -112,7 +112,7 @@ class CanvasController extends Controller {
                 this.dot_flag = true;
                 if (this.dot_flag) {
                     this.view.drawDot(this.currX, this.currY, this.color, this.lineWidth);
-                    this.view.drawDot(this.currX+50, this.currY, this.color, this.lineWidth);
+                    if(this.model.tool === "pencil") {this.view.drawDot(this.currX+50, this.currY, this.color, this.lineWidth);};
                     this.dot_flag = false;
                 }
                 break;
@@ -123,7 +123,7 @@ class CanvasController extends Controller {
                     this.currX = this._mouseX(e);
                     this.currY = this._mouseY(e);
                     this.view.drawLine(this.prevX, this.prevY, this.currX, this.currY, this.color, this.lineWidth);
-                    this.view.drawLine(this.prevX+50, this.prevY, this.currX+50, this.currY, this.color, this.lineWidth);
+                    if(this.model.tool === "pencil"){this.view.drawLine(this.prevX+50, this.prevY, this.currX+50, this.currY, this.color, this.lineWidth);}
                 }
                 break;
             case "out":
