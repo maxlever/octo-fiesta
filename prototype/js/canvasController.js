@@ -67,7 +67,7 @@ class CanvasController extends Controller {
     }
 
     eraserSelected() {
-        this.lineWidth = 3;
+        this.lineWidth = 20;
         this.color = (this.c.style.backgroundColor == "") ?
             "white" : this.c.style.backgroundColor;
         this._brushSelected();
