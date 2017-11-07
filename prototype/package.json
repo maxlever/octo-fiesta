@@ -6,7 +6,7 @@
   "scripts": {
     "css": "sass styles/style.sass:build/style.css",
     "serve": "browser-sync start --server . --files 'index.html' 'js/*.js' 'styles/style.css'",
-    "watch": "sass --watch styles/style.sass:build/style.css",
+    "watch": "sass --watch styles/style.sass:styles/style.css",
     "uglify": "uglifyjs --compress --mangle js/*.js -o build/all.js",
     "dev": "parallelshell 'npm run watch' 'npm run serve'",
     "build": "parallelshell 'npm run css' 'npm run uglify'"

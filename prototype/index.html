@@ -27,7 +27,7 @@
     <script id="menu-partial" type="text/x-handlebars-template">
         {{#each items}}
         <li class="menu-item menu-item--{{title}}">
-            <a href="#" class="menu-link">{{title}}</a>
+            <button class="menu-link">{{title}}</button>
             {{#if items}}
             <ul class="submenu">
                 {{> menu}}
@@ -38,9 +38,12 @@
     </script>
 
     <script id="header-template" type="text/x-handlebars-template">
-        <ul class="menu">
-            {{> menu}}
-        </ul>
+        <div class="topbar"></div>
+        <div class="menubar">
+            <ul class="menu">
+                {{> menu}}
+            </ul>
+        </div>
     </script>
 
     <script id="toolbar-template" type="text/x-handlebars-template">
@@ -55,12 +58,14 @@
 
     <script id="footer-template" type="text/x-handlebars-template">
         <div class="palette">
-            <div class="palette__current" style="background:{{currentColor}};">
+            <div class="palette__current">
+                <div class="color color--background" style="background:white;"></div>
+                <div class="color color--foreground" style="background:{{currentColor}};"></div>
             </div>
             <div class="palette__picker">
                 <ul class="colors">
                 {{#each colors}}
-                    <li class="color" id="{{this}}" style="background:{{this}};"></li>
+                    <li class="color color--option" id="{{this}}" style="background:{{this}};"></li>
                 {{/each}}
                 </ul>
             </div>

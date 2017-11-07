@@ -3,7 +3,7 @@ class FooterView extends View {
     constructor(model) {
         super(model);
         this.DOMselectors = {
-            color: '.color'
+            color: '.palette__picker .color'
         };
         this.DOM = {
             templateIn: $('#footer-template'),
