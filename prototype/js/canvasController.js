@@ -112,6 +112,7 @@ class CanvasController extends Controller {
                 this.dot_flag = true;
                 if (this.dot_flag) {
                     this.view.drawDot(this.currX, this.currY, this.color, this.lineWidth);
+                    this.view.drawDot(this.currX+50, this.currY, this.color, this.lineWidth);
                     this.dot_flag = false;
                 }
                 break;
