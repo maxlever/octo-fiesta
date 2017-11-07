@@ -35,7 +35,7 @@ class Model {
                                     "items": [
                                             {
                                                 "title": "Sort by name",
-                                                "items": [{"title": "cat.png"}]
+                                                "items": [{"title": "cat_png"}]
                                             },
                                             {"title": "Sort by last modified"},
                                             {"title": "Sort by extension"}
