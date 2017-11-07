@@ -10,38 +10,11 @@ function init() {
 
 }
 
-//do we need this?
+// change color of pen
 function changeColor(obj) {
-  switch (obj.id) {
-    case "green":
-      color = "green";
-      console.log("color is green");
-      break;
-    case "blue":
-      color = "blue";
-      console.log("color is blue");
-      break;
-    case "red":
-      color = "red";
-      console.log("color is red");
-      break;
-    case "yellow":
-      color = "yellow";
-      console.log("color is yellow");
-      break;
-    case "orange":
-      color = "orange";
-      console.log("color is orange");
-      break;
-    case "black":
-      color = "black";
-      console.log("color is black");
-      break;
-    case "white":
-      color = "white";
-      console.log("color is white");
-      break;
-  }
+  color = obj.id;
+  document.getElementById("primary-color").style.backgroundColor = color;
+  console.log("color is " + color);
 }
 
 //draw function

@@ -46,32 +46,32 @@
     }
 
     .container .toolbar {
-      width: 110px;
+      min-width: 100px;
+      width: 100px;
       margin: 0;
       text-align: left;
       order: -1;
       background: #ece9d9;
+      padding: 5px;
     }
+
     .container .toolbar .tools {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
       margin: 0;
-      padding: 0 0 10px;
     }
     .container .toolbar .tools li {
       width: 40px;
-      margin-left: 10px;
+      margin: 5px;
       height: 40px;
       background: #fff;
-      margin-top: 10px;
     }
     .container .toolbar .tools li input {
       height: 30px;
-      margin:5px;
+      margin: 5px;
       width: 30px;
     }
-
 
     .dropdown-content {
         display: none;
@@ -122,9 +122,28 @@
 
     .footer .palette .color {
       height: 20px;
-      margin: 0 5px 0 5px;
+      margin: 0 1px 0 1px;
       width: 20px;
       box-shadow: inset 2px 2px 0px 0px #000;
+    }
+
+    #primary-color, #secondary-color {
+      box-shadow: inset 1px 1px 0px 0px #fbfbee;
+      box-shadow: inset -1px -1px 0px 0px #fbfbee;
+    }
+
+    .popin {
+      border-top: 1px solid #b0ad9d;
+      border-left: 1px solid #b0ad9d;
+      border-bottom: 1px solid #fbfbee;
+      border-right: 1px solid #fbfbee;
+    }
+
+    .popout {
+      border-bottom: 1px solid #b0ad9d;
+      border-right: 1px solid #b0ad9d;
+      border-top: 1px solid #fbfbee;
+      border-left: 1px solid #fbfbee;
     }
 
     #colorPickerDisplay {
@@ -133,13 +152,14 @@
       background: #f9f5f2;
     }
 
-    #colorPickerDisplay > .color {
+    #primary-color {
       position: relative;
-      margin-left: 8px;
-      margin-top: 10px;
+      margin-left: 7px;
+      margin-top: 9px;
       z-index: 10;
     }
-    #colorPickerDisplay > .color:nth-child(2) {
+    
+    #secondary-color {
       position: relative;
       margin-left: 18px;
       margin-top: -13px;
@@ -221,6 +241,12 @@
       border-style: solid;
     }
 
+    #spacer {
+      width: 100% - 10px;
+      height: calc(100% - 162px);
+      margin: 5px;
+    }
+
   </style>
   <script type="text/javascript" src="../js/index.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
@@ -229,7 +255,7 @@
 <body onload="init()">
 <header class="header">
   <div id="topbar"></div>
-  <div class="navbar">
+  <div class="navbar popin">
     <div class="dropdown">
       <button class="file-dropbtn" onclick="fileMenu()">File
       </button>
@@ -243,12 +269,13 @@
   </div>
 </header>
 <div class="container">
-  <div class="content">
+  <div class="content popin">
     <div class="canvas-wrapper">
       <canvas id="can" width="400" height="400"></canvas>
     </div>
   </div>
-  <div class="toolbar">
+
+  <div class="toolbar popout">
     <ul class="tools">
       <li class="tool"><input type="image" id="pencil" onclick= "pencilSelected()" src="../images/pencil.png"/></li>
       <li class="tool"><input type="image" id="eraser" onclick= "eraserSelected()" src="../images/eraser.png"/></li>
@@ -256,23 +283,26 @@
       <li class="tool"><input type="image" id="paint-bucket" onclick="paintbucketSelected()" src="../images/paint-bucket.png"/></li>
       <li class="tool"><input type="image" id="text" onclick= "textSelected()" src="../images/text.png"/></li>
       <li class="tool"><input type="image" id="diagonal-line" onclick="lineSelected()" src="../images/diagonal-line.png"/></li>
-
     </ul>
+
+    <div class="popin" id="spacer"></div>
+
   </div>
 </div>
-<footer class="footer">
+
+<footer class="footer popout">
   <div class="palette">
-    <div class="color" id="colorPickerDisplay">
-      <div class=color style="background:black;" onclick="changeColor(this)"></div>
-      <div class=color style="background:white;" onclick="changeColor(this)"></div>
+    <div class="color popin" id="colorPickerDisplay">
+      <div class="color popout" id="primary-color" style="background:black;" onclick="changeColor(this)"></div>
+      <div class="color popout" id="secondary-color" style="background:white;" onclick="changeColor(this)"></div>
     </div>
-    <div class=color style="background:green;" id="green" onclick="changeColor(this)"></div>
-    <div class=color style="background:blue;" id="blue" onclick="changeColor(this)"></div>
-    <div class=color style="background:red;" id="red" onclick="changeColor(this)"></div>
-    <div class=color style="background:yellow;" id="yellow" onclick="changeColor(this)"></div>
-    <div class=color style="background:orange;" id="orange" onclick="changeColor(this)"></div>
-    <div class=color style="background:black;" id="black" onclick="changeColor(this)"></div>
-    <div class=color style="background:white;" id="white" onclick="changeColor(this)"></div>
+    <div class="color popin" style="background:green;" id="green" onclick="changeColor(this)"></div>
+    <div class="color popin" style="background:blue;" id="blue" onclick="changeColor(this)"></div>
+    <div class="color popin" style="background:red;" id="red" onclick="changeColor(this)"></div>
+    <div class="color popin" style="background:yellow;" id="yellow" onclick="changeColor(this)"></div>
+    <div class="color popin" style="background:orange;" id="orange" onclick="changeColor(this)"></div>
+    <div class="color popin" style="background:black;" id="black" onclick="changeColor(this)"></div>
+    <div class="color popin" style="background:white;" id="white" onclick="changeColor(this)"></div>
   </div>
 </footer>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
