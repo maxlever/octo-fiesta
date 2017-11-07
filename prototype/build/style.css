@@ -111,30 +111,44 @@ body {
   color: #000; }
 
 .menu {
+  font-size: .9em;
   display: flex;
   flex-wrap: wrap; }
+  .menu:first-child {
+    box-shadow: none;
+  /*border: 1px solid #bfbeb4;*/ }
   .menu .menu-item {
     height: 30px;
     background: #ece9d9;
     position: relative;
-    box-sizing: border-box; }
+    box-sizing: border-box; 
+    }
     .menu .menu-item.selected > .submenu {
-      left: 100%;
+      left: calc(100% - 1px);
       margin-left: 1px;
-      top: -1px; }
+      top: 0px; 
+      background: #376cc1;
+      box-shadow: 3px 3px 1px 0px #7b7975; }
+    .submenu {
+      border: 1px solid #bfbeb4;
+    }
+
   .menu .menu-link {
     position: relative;
+    width: 150px;
     display: block;
-    text-decoration: none;
     padding: 5px 16px;
     color: black;
     text-transform: capitalize;
+    text-decoration: none;
+    text-align: left;
     background: inherit;
-    border: 1px solid #ece9d9;
+    border: 0px solid #ece9d9;
     outline: none;
     cursor: pointer; }
     .menu .menu-link:hover {
-      background: #f9f5f2; }
+      background: #376cc1;
+      color: #fff;}
   .menu .submenu {
     position: absolute;
     white-space: nowrap;
@@ -143,7 +157,13 @@ body {
   .menu > .menu-item.selected > .submenu {
     left: auto;
     top: 30px;
-    min-width: 100%; }
+    min-width: 100%;
+    background: #376cc1; }
+    .menu .selected {
+      background: #376cc1;
+      border: none;
+      color: #fff;
+    } 
 
 .topbar {
   width: calc(100% - 2px);
