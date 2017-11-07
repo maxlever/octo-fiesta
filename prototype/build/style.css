@@ -201,6 +201,8 @@ body {
 .palette__picker .colors {
   display: flex;
   flex-direction: row; }
+  .palette__picker .color {
+    cursor: url(../images/bighandcursor.png), pointer; }
 
 .color {
   margin: 0 1px 0 1px;
