@@ -60,6 +60,7 @@ class CanvasController extends Controller {
                 this.isDragging = true;
                 this.image = new Image();
                 this.image.src = this.c.toDataURL();
+                this.image.setAttribute('crossOrigin', 'anonymous');
                 break;
             case "move":
                 if( this.isDragging == true )
