@@ -8,9 +8,23 @@ body {
   flex-direction: column;
   min-height: 100vh; }
 
+.popin {
+  border-top: 1px solid #b0ad9d;
+  border-left: 1px solid #b0ad9d;
+  border-bottom: 1px solid #fbfbee;
+  border-right: 1px solid #fbfbee;
+}
+.popout {
+  border-top: 1px solid #fbfbee;
+  border-left: 1px solid #fbfbee;
+  border-bottom: 1px solid #b0ad9d;
+  border-right: 1px solid #b0ad9d;
+}
+
 .container {
   display: flex;
-  flex: 1 0 auto; }
+  flex: 1 0 auto;
+  border-top: 1px solid #8e8e8e;}
 
 .content {
   flex: 1 0 auto;
@@ -23,7 +37,8 @@ body {
   max-height: calc(100% - $m * 2);
   max-width: calc(100% - $m * 2);
   height: 300px;
-  width: 300px; }
+  width: 300px; 
+  border-style: none;}
 
 #canvas {
   background: #fff;
@@ -37,8 +52,7 @@ body {
 .menubar {
   background-color: #ece9d9;
   font-family: Arial;
-  color: #000;
-  border-bottom: 1px solid #8e8e8e; }
+  color: #000; }
 
 .menu {
   display: flex;
@@ -86,10 +100,10 @@ body {
   border-style: solid; }
 
 .footer {
-  width: 100%;
-  height: 60px;
+  width: 100% - 2px;
+  height: 70px;
   background: #ece9d9;
-  border-top: 1px solid #8e8e8e; }
+}
 
 .palette {
   padding: 10px;
@@ -101,7 +115,7 @@ body {
   flex-direction: row; }
 
 .color {
-  margin: 0 5px 0 5px;
+  margin: 0 1px 0 1px;
   height: 20px;
   width: 20px;
   box-shadow: inset 2px 2px 0px 0px #000; }
@@ -110,19 +124,21 @@ body {
   height: 45px;
   width: 45px;
   background: #f9f5f2;
-  margin: 0 5px 0 5px;
+  margin: 0 1px 0 1px;
   box-shadow: inset 2px 2px 0px 0px #000; }
 
 .palette__current > .color--foreground {
+  box-shadow: inset -1px -1px 0px 0px #ddd;
   position: relative;
-  left: 4px;
-  top: -11px;
+  left: 5px;
+  top: -14px;
   z-index: 10; }
 
 .palette__current > .color--background {
+  box-shadow: inset -1px -1px 0px 0px #ddd;
   position: relative;
   left: 14px;
-  top: 19px;
+  top: 18px;
   z-index: 1; }
 
 .toolbar {
@@ -148,7 +164,8 @@ body {
   background: white;
   cursor: pointer; }
   .tool.selected {
-    border: 1px solid black; }
+    border: 1px solid #8e8e8e;
+    border-radius: 4px; }
   .tool .tool__img {
     height: 30px;
     width: 30px;
