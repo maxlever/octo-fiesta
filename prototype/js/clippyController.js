@@ -15,7 +15,12 @@ class ClippyController extends Controller {
 
       var mi = document.getElementsByClassName("menu-item");
 
+      var dialogueBox = document.getElementsByClassName("dialogue-box")[0];
       var dialogueText = document.getElementById("dialogueText");
+
+      dialogueBox.addEventListener("click", function(e) {
+        dialogueText.innerHTML ="";
+      }, false);
 
       pencil.addEventListener("click", function (e) {
         setTimeout(function(){
@@ -66,9 +71,11 @@ class ClippyController extends Controller {
       }, false);
 
       move.addEventListener("click", function (e) {
-        dialogueText.innerHTML = "Oh no! That tool is hidden out of sight inside a submenu. A well-designed interface "
-        + "displays necessary tools where users can see them. This reduces the user's memory "
-        + "load, and allows them to learn the interface more easily."
+        setTimeout(function(){
+          dialogueText.innerHTML =  "Oh no! That tool is hidden out of sight inside a submenu. A well-designed interface "
+          + "displays necessary tools where users can see them. This reduces the user's memory "
+          + "load, and allows them to learn the interface more easily."
+        },3000);
       }, false);
     }
 }
