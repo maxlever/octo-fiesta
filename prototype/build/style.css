@@ -6,7 +6,8 @@ ul, li {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; }
+  min-height: 100vh;
+  cursor: url(../images/newcursor.png), default;}
 
 .popin {
   border-top: 1px solid #b0ad9d;
@@ -142,7 +143,7 @@ body {
     background: inherit;
     border: 0px solid #ece9d9;
     outline: none;
-    cursor: pointer; }
+    cursor: url(../images/bighandcursor.png), pointer; }
     .menu .menu-link:hover {
       background: #376cc1;
       color: #fff;}
@@ -247,7 +248,7 @@ body {
   height: 40px;
   margin: 5px;
   box-sizing: border-box;
-  cursor: pointer; }
+  cursor: url(../images/bighandcursor.png), pointer; }
   .tool.selected {
     border: 1px solid #8e8e8e;
     border-radius: 4px;}
