@@ -20,10 +20,15 @@ class CanvasController extends Controller {
 
     selectSelected() {
       $("#select-submenu").toggle();
+      $("#select").click( function(e){
+          $("#select-submenu").toggle();
+      });
       let _this = this;
       $("#move").click(function() {
           _this.move = true;
+          $("#select-submenu").toggle();
           _this.moveSelected();
+
       })
     }
 
@@ -207,6 +212,7 @@ class CanvasController extends Controller {
         this.c.style.cursor = '';
         this.isDragging = false;
         this.move = false;
+        $('#select-submenu').hide();
         let _this = this;
         switch (this.model.tool) {
             case ("pencil"):
