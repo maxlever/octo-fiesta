@@ -163,6 +163,19 @@ body {
       color: #fff;
     }
 
+.menu-link--has-submenu:after {
+  display: block;
+  content: '\25BA';
+  right: 10px;
+  position: absolute;
+  top: 5px;
+  color: black; }
+  .menu-link--has-submenu:hover:after {
+    color: #fff;}
+  .menu > .menu-item > .menu-link--has-submenu:after {
+    display: none;
+  }
+  
 .topbar {
   width: calc(100% - 2px);
   height: 30px;
