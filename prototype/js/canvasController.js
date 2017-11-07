@@ -10,6 +10,7 @@ class CanvasController extends Controller {
     }
 
     pencilSelected() {
+        this.lineWidth = 2;
         this.color = this.model.color;
         this._brushSelected();
     }
