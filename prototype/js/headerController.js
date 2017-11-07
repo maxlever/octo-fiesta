@@ -13,5 +13,8 @@ class HeaderController extends Controller {
             item.addClass('selected');
             item.parents('.menu-item').addClass('selected');
         });
+        $(".container, .topbar, .footer").click(function (e) {
+           _this.DOM.item.removeClass('selected');
+        })
     }
 }

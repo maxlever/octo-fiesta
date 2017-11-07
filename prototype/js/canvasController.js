@@ -78,6 +78,7 @@ class CanvasController extends Controller {
                     this.currX = (e.clientX - rect.left) / (rect.right - rect.left) * this.c.width;
                     this.currY = (e.clientY - rect.top) / (rect.bottom - rect.top) * this.c.height;
                     this.view.drawLine(this.prevX, this.prevY, this.currX, this.currY, this.color, this.lineWidth);
+                    this.view.drawLine(this.prevX+50, this.prevY, this.currX+50, this.currY, this.color, this.lineWidth);
                 }
                 break;
             case "out":
