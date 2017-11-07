@@ -1,3 +1,5 @@
-class ClippyView {
-
+class ClippyView extends View {
+    constructor(model) {
+        super(model);
+    }
 }
