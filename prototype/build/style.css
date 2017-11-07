@@ -157,15 +157,15 @@ body {
 
 .tool {
   width: 40px;
-  margin-left: 10px;
   height: 40px;
+  margin-left: 10px;
   margin-top: 10px;
   box-sizing: border-box;
-  background: white;
   cursor: pointer; }
   .tool.selected {
     border: 1px solid #8e8e8e;
-    border-radius: 4px; }
+    border-radius: 4px;}
+
   .tool .tool__img {
     height: 30px;
     width: 30px;

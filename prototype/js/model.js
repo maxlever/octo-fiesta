@@ -7,8 +7,8 @@ class Model {
     constructor() {
         this.subject = new Subject();
         this.colors = [
-            "blue", "green", "red",
-            "yellow", "orange", "black"
+            "black", "blue", "green", "red",
+            "yellow", "orange", "white"
         ];
         this.tools = [
             "pencil", "eraser", "text",
