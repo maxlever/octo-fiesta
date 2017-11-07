@@ -3,10 +3,13 @@ class CanvasController extends Controller {
         super(view, model);
         this.canvas = this.DOM.canvas; // $ elem
         this.c = this.canvas[0]; // js
+        this.ctx = this.c.getContext('2d');
         this.w = this.c.width, this.h = this.c.height,
         this.flag = false, this.dot_flag = false,
         this.lineWidth = 2,
         this.prevX = 0, this.currX = 0, this.prevY = 0, this.currY = 0;
+        this.isDragging = false;
+        this.move = false;
     }
 
     pencilSelected() {
@@ -16,8 +19,70 @@ class CanvasController extends Controller {
     }
 
     selectSelected() {
-      var s = document.getElementById("select-submenu");
-      s.style.display = "block";
+      $("#select-submenu").toggle();
+      let _this = this;
+      $("#move").click(function() {
+          _this.move = true;
+          _this.moveSelected();
+      })
+    }
+
+    moveSelected() {
+
+        let _this = this;
+        this.canvas.on({
+            "mousemove": function(e) {
+                if (_this.move) {
+                    _this.moveCanvas("move", e);
+                }
+            },
+            "mousedown": function(e) {
+                if (_this.move) {
+                    _this.moveCanvas("down", e);
+                }
+            },
+            "mouseup": function(e) {
+                if (_this.move) {
+                    _this.moveCanvas("up", e);
+                }
+            },
+            "mouseout": function(e) {
+                if (_this.move) {
+                    _this.moveCanvas("out", e);
+                }
+            }
+        });
+    }
+
+    moveCanvas(res, e) {
+        switch (res) {
+            case "down":
+                this.isDragging = true;
+                this.image = new Image();
+                this.image.src = this.c.toDataURL();
+                break;
+            case "move":
+                if( this.isDragging == true )
+                {
+                    var x = this._mouseX(e);
+                    var y = this._mouseY(e);
+                    this.buildCanvasOffset(x - this.w/2, y - this.h/2);
+                }
+
+                break;
+            case "out":
+            case "up":
+                this.isDragging = false;
+                break;
+            default:
+                break;
+        }
+    }
+
+    buildCanvasOffset(x, y) {
+        this.ctx.clearRect(0, 0, this.w, this.h);
+        // console.log("Drawing offset " +  x  +" " + y);
+        this.ctx.drawImage(this.image, x, y, this.w, this.h);
     }
 
     fillSelected() {
@@ -139,6 +204,8 @@ class CanvasController extends Controller {
     notify() {
         this.canvas.off();
         this.c.style.cursor = '';
+        this.isDragging = false;
+        this.move = false;
         let _this = this;
         switch (this.model.tool) {
             case ("pencil"):
