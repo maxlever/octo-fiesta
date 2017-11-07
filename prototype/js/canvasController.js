@@ -28,12 +28,10 @@ class CanvasController extends Controller {
           _this.move = true;
           $("#select-submenu").toggle();
           _this.moveSelected();
-
-      })
+      });
     }
 
     moveSelected() {
-
         let _this = this;
         this.canvas.on({
             "mousemove": function(e) {
