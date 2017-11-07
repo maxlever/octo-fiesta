@@ -56,8 +56,8 @@ class CanvasController extends Controller {
                 _this.textFlag = true;
             }
             _this.keyHistory = "";
-            _this.textX = _this._mouseX(e);
-            _this.textY = _this._mouseY(e);
+            _this.textX = parseInt(_this._mouseX(e));
+            _this.textY = parseInt(_this._mouseY(e));
             _this.c.style.cursor = '';
         });
     }
