@@ -33,14 +33,36 @@ class ClippyController extends Controller {
         },3000);
       }, false);
 
-      /*mi[4].addEventListener("click", function (e) {
+      mi[4].addEventListener("click", function (e) {
+          console.log("4");
           dialogueText.innerHTML = "Hm..another menu."
-      }, false);*/
+          e.stopPropagation();
+      }, false);
+
+      mi[6].addEventListener("click", function (e) {
+        console.log("6");
+          dialogueText.innerHTML = "Yet another menu!"
+          e.stopPropagation();
+      }, false);
+
+      mi[7].addEventListener("click", function (e) {
+        console.log("7");
+          dialogueText.innerHTML = "Wow, still more menus?"
+          e.stopPropagation();
+      }, false);
+
+      mi[8].addEventListener("click", function (e) {
+        console.log("8");
+          dialogueText.innerHTML = "This is an absurd amount of menus."
+          e.stopPropagation();
+      }, false);
 
       mi[9].addEventListener("click", function (e) {
+        console.log("9");
           dialogueText.innerHTML = "Oh no! That sure was a lot of menus. In a well-designed "
           + "interface, common actions are quick and often have shortcuts. This allows users to be "
           + "more efficient."
+          e.stopPropagation();
       }, false);
 
       move.addEventListener("click", function (e) {
@@ -48,12 +70,5 @@ class ClippyController extends Controller {
         + "displays necessary tools where users can see them. This reduces the user's memory "
         + "load, and allows them to learn the interface more easily."
       }, false);
-
-      /* 
-        Clippy Submenu Text
-        "Wow, still more menus?"
-        "Yet another menu!"
-        "This is an absurd amount of menus."
-      */
     }
 }
