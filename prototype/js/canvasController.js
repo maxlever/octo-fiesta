@@ -16,7 +16,8 @@ class CanvasController extends Controller {
     }
 
     selectSelected() {
-
+      var s = document.getElementById("select-submenu");
+      s.style.display = "block";
     }
 
     fillSelected() {

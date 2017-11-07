@@ -118,12 +118,12 @@ body {
     height: 30px;
     background: #ece9d9;
     position: relative;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     }
     .menu .menu-item.selected > .submenu {
       left: calc(100% - 1px);
       margin-left: 1px;
-      top: 0px; 
+      top: 0px;
       background: #376cc1;
       box-shadow: 3px 3px 1px 0px #7b7975; }
     .submenu {
@@ -161,7 +161,7 @@ body {
       background: #376cc1;
       border: none;
       color: #fff;
-    } 
+    }
 
 .topbar {
   width: calc(100% - 2px);
@@ -253,17 +253,17 @@ body {
 
 #select-submenu {
   position: absolute;
-  /*visibility: hidden;*/
+  display:none;
   top: 220px;
   left: 20px;
 }
 
 #menu-triangle {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  
+
   border-top: 5px solid black;
   position: absolute;
   top: 210px;
