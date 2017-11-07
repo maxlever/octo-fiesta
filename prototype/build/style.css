@@ -37,8 +37,24 @@ body {
   max-height: calc(100% - $m * 2);
   max-width: calc(100% - $m * 2);
   height: 300px;
-  width: 300px; 
-  border-style: none;}
+  width: 300px;
+  border-style: none;
+  display:flex;
+}
+
+.canvas-wrapper .clippy {
+  display: flex;
+}
+.canvas-wrapper #dialog-box {
+  height: 100px;
+  margin-left: 20px;
+}
+
+.canvas-wrapper #clippy {
+  height: 125px;
+  margin-top: 73px;
+  margin-left: -40px;
+}
 
 #canvas {
   background: #fff;

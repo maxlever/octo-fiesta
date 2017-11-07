@@ -38,6 +38,9 @@ body {
   width: 100%;
   height: 100%;
 }
+.container .clippy img {
+  height: 30px;
+}
 .container .toolbar {
   width: 110px;
   margin: 0;
