@@ -25,6 +25,7 @@ class CanvasController extends Controller {
 
     textSelected() {
         this.textFlag = false;
+        this.color = this.model.color;
         var ctx = this.c.getContext("2d");
         ctx.font = "18px Arial";
 
@@ -34,8 +35,7 @@ class CanvasController extends Controller {
 
         function addletter(letter) {
             _this.keyHistory += letter;
-            console.log(_this.textX);
-            console.log(_this.textY);
+            ctx.fillStyle = _this.color;
             ctx.fillText(_this.keyHistory, _this.textX, _this.textY);
         }
 
