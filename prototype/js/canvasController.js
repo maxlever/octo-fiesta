@@ -23,7 +23,42 @@ class CanvasController extends Controller {
     }
 
     textSelected() {
+        this.textFlag = false;
+        var ctx = this.c.getContext("2d");
+        ctx.font = "18px Arial";
 
+        this.keyHistory = "";
+
+        window.addEventListener("keyup", keyUpHandler, true);
+
+        function addletter(letter) {
+            _this.keyHistory += letter;
+            console.log(_this.textX);
+            console.log(_this.textY);
+            ctx.fillText(_this.keyHistory, _this.textX, _this.textY);
+        }
+
+        let _this = this;
+        function keyUpHandler(event) {
+            if (_this.textFlag) {
+                var letters = "abcdefghijklmnopqrstuvwxyz";
+                var key = event.keyCode;
+                if (key > 64 && key < 91) {
+                    var letter = letters.substring(key - 64, key - 65);
+                    addletter(letter);
+                }
+            }
+        }
+        this.c.style.cursor = 'text';
+        this.canvas.click(function (e) {
+            if (_this.textFlag == false) {
+                _this.textFlag = true;
+            }
+            _this.keyHistory = "";
+            _this.textX = _this._mouseX(e);
+            _this.textY = _this._mouseY(e);
+            _this.c.style.cursor = '';
+        });
     }
 
     lineSelected() {
@@ -55,14 +90,22 @@ class CanvasController extends Controller {
         });
     }
 
-    findXY(res, e) {
+    _mouseX(e) {
         var rect = this.c.getBoundingClientRect();
+        return (e.clientX - rect.left) / (rect.right - rect.left) * this.c.width;
+    }
+    _mouseY(e) {
+        var rect = this.c.getBoundingClientRect();
+        return (e.clientY - rect.top) / (rect.bottom - rect.top) * this.c.height;
+    }
+
+    findXY(res, e) {
         switch (res) {
             case "down":
                 this.prevX = this.currX;
                 this.prevY = this.currY;
-                this.currX = (e.clientX - rect.left) / (rect.right - rect.left) * this.c.width;
-                this.currY = (e.clientY - rect.top) / (rect.bottom - rect.top) * this.c.height;
+                this.currX = this._mouseX(e);
+                this.currY = this._mouseY(e);
 
                 this.flag = true;
                 this.dot_flag = true;
@@ -75,8 +118,8 @@ class CanvasController extends Controller {
                 if (this.flag) {
                     this.prevX = this.currX;
                     this.prevY = this.currY;
-                    this.currX = (e.clientX - rect.left) / (rect.right - rect.left) * this.c.width;
-                    this.currY = (e.clientY - rect.top) / (rect.bottom - rect.top) * this.c.height;
+                    this.currX = this._mouseX(e);
+                    this.currY = this._mouseY(e);
                     this.view.drawLine(this.prevX, this.prevY, this.currX, this.currY, this.color, this.lineWidth);
                     this.view.drawLine(this.prevX+50, this.prevY, this.currX+50, this.currY, this.color, this.lineWidth);
                 }
@@ -91,6 +134,8 @@ class CanvasController extends Controller {
     }
 
     notify() {
+        this.canvas.off();
+        this.c.style.cursor = '';
         let _this = this;
         switch (this.model.tool) {
             case ("pencil"):
