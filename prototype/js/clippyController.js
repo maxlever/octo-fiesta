@@ -35,5 +35,18 @@ class ClippyController extends Controller {
           + "interface, common actions are quick and often have shortcuts. This allows users to be "
           + "more efficient."
       }, false);
+
+      /* 
+        Clippy Move Tool Text
+        "Oh no! That tool is hidden out of sight inside a submenu. A well-designed interface "
+        + "displays necessary tools where users can see them. This reduces the user’s memory "
+        + "load, and allows them to learn the interface more easily."
+
+        Clippy Submenu Text
+        "Hm..another menu."
+        "Wow, still more menus?"
+        "Yet another menu!"
+        "This is an absurd amount of menus."
+      */
     }
 }
