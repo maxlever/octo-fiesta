@@ -11,7 +11,7 @@ class ClippyController extends Controller {
       var line = document.getElementById("line");
       var select = document.getElementById("select");
       var fill = document.getElementById("fill");
-      var fill = document.getElementById("move");
+      var move = document.getElementById("move");
 
       var mi = document.getElementsByClassName("menu-item");
 
@@ -33,6 +33,10 @@ class ClippyController extends Controller {
         },3000);
       }, false);
 
+      /*mi[4].addEventListener("click", function (e) {
+          dialogueText.innerHTML = "Hm..another menu."
+      }, false);*/
+
       mi[9].addEventListener("click", function (e) {
           dialogueText.innerHTML = "Oh no! That sure was a lot of menus. In a well-designed "
           + "interface, common actions are quick and often have shortcuts. This allows users to be "
@@ -47,7 +51,6 @@ class ClippyController extends Controller {
 
       /* 
         Clippy Submenu Text
-        "Hm..another menu."
         "Wow, still more menus?"
         "Yet another menu!"
         "This is an absurd amount of menus."
