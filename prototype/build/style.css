@@ -199,6 +199,7 @@ body {
 
 .toolbar {
   width: 100px;
+  min-width: 100px;
   margin: 0;
   padding: 5px;
   text-align: left;
@@ -230,6 +231,13 @@ body {
   width: 100% - 10px;
   height: 100px;
   margin: 10px;
+}
+
+#select-submenu {
+  position: absolute;
+  /*visibility: hidden;*/
+  top: 220px;
+  left: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -23,6 +23,7 @@ class ClippyController extends Controller {
           + "allows users to easily understand the functions of the interface."
         },5000);
       }, false);
+
       text.addEventListener("click", function (e) {
         setTimeout(function(){
           dialogueText.innerHTML = "Oh no! This text is no longer editable. In a well-designed "
@@ -30,6 +31,7 @@ class ClippyController extends Controller {
           + "more control over their interactions, and reduces the time spent re-doing rather than un-doing."
         },5000);
       }, false);
+      
       mi[8].addEventListener("click", function (e) {
           dialogueText.innerHTML = "Oh no! That sure was a lot of menus. In a well-designed "
           + "interface, common actions are quick and often have shortcuts. This allows users to be "
