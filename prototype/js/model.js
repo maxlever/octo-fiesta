@@ -7,8 +7,8 @@ class Model {
     constructor() {
         this.subject = new Subject();
         this.colors = [
-            "blue", "green", "red",
-            "yellow", "orange", "black"
+            "black", "blue", "green", "red",
+            "yellow", "orange", "white"
         ];
         this.tools = [
             "pencil", "eraser", "text",
@@ -17,27 +17,32 @@ class Model {
         this.items = [{
             "title": "file",
             "items": [{
-                    "title": "file1",
-                    "items": [{
-                            "title": "img4"
-                        },
-                        {
-                            "title": "img5"
-                        }
+                    "title": "Save",
+                    "items": [
+                        {"title": "Save as..."},
+                        {"title": "Save to..."}
                     ]
                 },
                 {
-                    "title": "file2",
+                    "title": "Import Image",
                     "items": [{
-                            "title": "bla1"
+                            "title": "From PowerPoint"
                         },
                         {
-                            "title": "bla2",
+                            "title": "From Computer",
                             "items": [{
-                                    "title": "img1"
+                                    "title": "Desktop",
+                                    "items": [
+                                            {
+                                                "title": "Sort by name",
+                                                "items": [{"title": "cat.png"}]
+                                            },
+                                            {"title": "Sort by last modified"},
+                                            {"title": "Sort by extension"}
+                                        ]
                                 },
                                 {
-                                    "title": "img2"
+                                    "title": "Documents"
                                 }
                             ]
                         }

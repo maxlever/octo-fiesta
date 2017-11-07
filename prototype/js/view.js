@@ -35,8 +35,10 @@ class View {
         return this.DOM;
     }
     notify() {
-        const html = this.templateFnc(this._getData());
-        this.DOM.templateOut.html(html);
+        if (this.templateFnc) {
+            const html = this.templateFnc(this._getData());
+            this.DOM.templateOut.html(html);
+        }
         this._updateSelectors();
     }
 }
