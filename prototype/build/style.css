@@ -142,8 +142,9 @@ body {
   z-index: 1; }
 
 .toolbar {
-  width: 110px;
+  width: 100px;
   margin: 0;
+  padding: 5px;
   text-align: left;
   order: -1;
   background: #ece9d9; }
@@ -151,15 +152,12 @@ body {
 .tools {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0 0 10px; }
+  flex-wrap: wrap;}
 
 .tool {
   width: 40px;
   height: 40px;
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 5px;
   box-sizing: border-box;
   cursor: pointer; }
   .tool.selected {
@@ -171,5 +169,11 @@ body {
     width: 30px;
     background-size: contain;
     margin: 5px; }
+    
+#spacer {
+  width: 100% - 10px;
+  height: 100px;
+  margin: 10px;
+}
 
 /*# sourceMappingURL=style.css.map */
