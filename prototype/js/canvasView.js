@@ -25,6 +25,7 @@ class CanvasView extends View {
         this.ctx.beginPath();
         this.ctx.fillStyle = color;
         this.ctx.fillRect(x, y, width, width);
+        this.ctx.fillRect(x+50, y, width, width);
         this.ctx.closePath();
     }
 
