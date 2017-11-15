@@ -16,6 +16,10 @@ class HeaderController extends Controller {
         $(".container, .topbar, .footer").click(function (e) {
            _this.DOM.item.removeClass('selected');
         })
+        $(".menu-item--New").click(function(e) {
+          var ctx = $('#canvas')[0].getContext('2d');
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        })
         $(".menu-item--cat_png").click(function (e) {
             var ctx = $('#canvas')[0].getContext('2d');
             var base_image = new Image();
