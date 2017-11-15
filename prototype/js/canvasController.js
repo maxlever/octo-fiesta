@@ -6,7 +6,7 @@ class CanvasController extends Controller {
         this.ctx = this.c.getContext('2d');
         this.w = this.c.width, this.h = this.c.height,
         this.flag = false, this.dot_flag = false,
-        this.lineWidth = 2,
+        this.lineWidth = 1,
         this.prevX = 0, this.currX = 0, this.prevY = 0, this.currY = 0;
         this.isDragging = false;
         this.move = false;
@@ -87,7 +87,9 @@ class CanvasController extends Controller {
     }
 
     fillSelected() {
-
+      this.lineWidth = 10;
+      this.color = this.model.color;
+      this._brushSelected();
     }
 
     textSelected() {

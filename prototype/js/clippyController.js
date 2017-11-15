@@ -78,7 +78,13 @@ class ClippyController extends Controller {
               + "A well-designed interface would try to match the system to the real world "
               + "and allow you to move a specific selected area rather than the entire canvas"
           }, false);
+      }, false);
 
+      fill.addEventListener("mousedown", function (e) {
+          dialogueText.innerHTML = "Oh no! That fill tool is not working like expected. "
+          + "A well-designed interface would try to match the system to the real world "
+          + "by filling in the area a certain color like in other painting programs, instead "
+          + "of just filling in a select square with color."
       }, false);
     }
 }
