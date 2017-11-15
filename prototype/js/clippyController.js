@@ -12,6 +12,8 @@ class ClippyController extends Controller {
       var select = document.getElementById("select");
       var fill = document.getElementById("fill");
       var move = document.getElementById("move");
+      var canvas = document.getElementById("canvas");
+
 
       var mi = document.getElementsByClassName("menu-item");
 
@@ -67,9 +69,16 @@ class ClippyController extends Controller {
       }, false);
 
       move.addEventListener("click", function (e) {
-          dialogueText.innerHTML =  "Oh no! That tool is hidden out of sight inside a submenu. A well-designed interface "
-          + "displays necessary tools where users can see them. This reduces the user's memory "
-          + "load, and allows them to learn the interface more easily."
+          dialogueText.innerHTML =  "Oh no! Not only is that tool is hidden out of sight inside "
+          + "a submenu, it doesn't relate to the rest of the tools. A well-designed "
+          + "interface displays necessary tools where users can see them. This reduces the user's "
+          + "memory load, and allows them to learn the interface more easily."
+          canvas.addEventListener("mousedown", function (e) {
+              dialogueText.innerHTML = "Oh no! That move tool is acting a little funny. "
+              + "A well-designed interface would try to match the system to the real world "
+              + "and allow you to move a specific selected area rather than the entire canvas"
+          }, false);
+
       }, false);
     }
 }

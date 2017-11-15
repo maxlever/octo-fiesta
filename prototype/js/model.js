@@ -17,11 +17,7 @@ class Model {
         this.items = [{
             "title": "file",
             "items": [{
-                    "title": "Save",
-                    "items": [
-                        {"title": "Save as..."},
-                        {"title": "Save to..."}
-                    ]
+                    "title": "New Canvas"
                 },
                 {
                     "title": "Import Image",
