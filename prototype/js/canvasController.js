@@ -108,14 +108,24 @@ class CanvasController extends Controller {
 
         let _this = this;
         function keyUpHandler(event) {
-            if (_this.textFlag) {
-                var letters = "abcdefghijklmnopqrstuvwxyz";
-                var key = event.keyCode;
-                if (key > 64 && key < 91) {
-                    var letter = letters.substring(key - 64, key - 65);
-                    addletter(letter);
-                }
+          if (_this.textFlag) {
+            var letters = "abcdefghijklmnopqrstuvwxyz";
+            var key = event.keyCode;
+            var isShift;
+            if (window.event) {
+              key = window.event.keyCode;
+              isShift = !!window.event.shiftKey; // typecast to boolean
             }
+            if (key > 64 && key < 91 && !isShift) {
+                var letter = letters.substring(key - 64, key - 65);
+                addletter(letter);
+            }
+            if (key > 64 && key < 91 && isShift) {
+                var letter = letters.substring(key - 64, key - 65);
+                letter = letter.toUpperCase();
+                addletter(letter);
+            }
+          }
         }
         this.c.style.cursor = 'text';
         this.canvas.click(function (e) {
