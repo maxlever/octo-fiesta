@@ -23,19 +23,15 @@ class ClippyController extends Controller {
       }, false);
 
       pencil.addEventListener("click", function (e) {
-        setTimeout(function(){
           dialogueText.innerHTML = "Oh no! That's not how a pencil should act. In a well-designed "
           + "interface, tools should match their functions in the real world. That synchronicity "
           + "allows users to easily understand the functions of the interface."
-        },3000);
       }, false);
 
       text.addEventListener("click", function (e) {
-        setTimeout(function(){
           dialogueText.innerHTML = "Oh no! This text is no longer editable. In a well-designed "
           + "interface, users are able to easily undo their previous actions. This gives users "
           + "more control over their interactions, and reduces the time spent re-doing rather than un-doing."
-        },3000);
       }, false);
 
       mi[4].addEventListener("click", function (e) {
@@ -71,11 +67,9 @@ class ClippyController extends Controller {
       }, false);
 
       move.addEventListener("click", function (e) {
-        setTimeout(function(){
           dialogueText.innerHTML =  "Oh no! That tool is hidden out of sight inside a submenu. A well-designed interface "
           + "displays necessary tools where users can see them. This reduces the user's memory "
           + "load, and allows them to learn the interface more easily."
-        },3000);
       }, false);
     }
 }
