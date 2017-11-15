@@ -13,7 +13,7 @@ class CanvasController extends Controller {
     }
 
     pencilSelected() {
-        this.lineWidth = 2;
+        this.lineWidth = 1;
         this.color = this.model.color;
         this._brushSelected();
     }
@@ -94,7 +94,7 @@ class CanvasController extends Controller {
         this.textFlag = false;
         this.color = this.model.color;
         var ctx = this.c.getContext("2d");
-        ctx.font = "18px Arial";
+        ctx.font = "12px Arial";
 
         this.keyHistory = "";
 

@@ -37,10 +37,8 @@ body {
 .canvas-wrapper {
   position: relative;
   margin: 20px;
-  max-height: calc(100% - 150px);
-  max-width: calc(100% - 100px);
-  height: 300px;
-  width: 300px;
+  height: 600px;
+  width: 900px; /*also accounts for clippy size*/
   border-style: none;
   display:flex;
 }
@@ -175,7 +173,7 @@ body {
   .menu > .menu-item > .menu-link--has-submenu:after {
     display: none;
   }
-  
+
 .topbar {
   width: calc(100% - 2px);
   height: 30px;
