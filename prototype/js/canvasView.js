@@ -8,6 +8,7 @@ class CanvasView extends View {
             canvas: $("#canvas")
         };
         this.ctx = this.DOM.canvas[0].getContext("2d");
+
     }
 
 

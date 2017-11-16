@@ -6,14 +6,14 @@ class CanvasController extends Controller {
         this.ctx = this.c.getContext('2d');
         this.w = this.c.width, this.h = this.c.height,
         this.flag = false, this.dot_flag = false,
-        this.lineWidth = 2,
+        this.lineWidth = 1,
         this.prevX = 0, this.currX = 0, this.prevY = 0, this.currY = 0;
         this.isDragging = false;
         this.move = false;
     }
 
     pencilSelected() {
-        this.lineWidth = 2;
+        this.lineWidth = 1;
         this.color = this.model.color;
         this._brushSelected();
     }
@@ -90,14 +90,16 @@ class CanvasController extends Controller {
     }
 
     fillSelected() {
-
+      this.lineWidth = 10;
+      this.color = this.model.color;
+      this._brushSelected();
     }
 
     textSelected() {
         this.textFlag = false;
         this.color = this.model.color;
         var ctx = this.c.getContext("2d");
-        ctx.font = "18px Arial";
+        ctx.font = "12px Arial";
 
         this.keyHistory = "";
 
@@ -111,14 +113,24 @@ class CanvasController extends Controller {
 
         let _this = this;
         function keyUpHandler(event) {
-            if (_this.textFlag) {
-                var letters = "abcdefghijklmnopqrstuvwxyz";
-                var key = event.keyCode;
-                if (key > 64 && key < 91) {
-                    var letter = letters.substring(key - 64, key - 65);
-                    addletter(letter);
-                }
+          if (_this.textFlag) {
+            var letters = "abcdefghijklmnopqrstuvwxyz";
+            var key = event.keyCode;
+            var isShift;
+            if (window.event) {
+              key = window.event.keyCode;
+              isShift = !!window.event.shiftKey; // typecast to boolean
             }
+            if (key > 64 && key < 91 && !isShift) {
+                var letter = letters.substring(key - 64, key - 65);
+                addletter(letter);
+            }
+            if (key > 64 && key < 91 && isShift) {
+                var letter = letters.substring(key - 64, key - 65);
+                letter = letter.toUpperCase();
+                addletter(letter);
+            }
+          }
         }
         this.c.style.cursor = 'text';
         this.canvas.click(function (e) {
