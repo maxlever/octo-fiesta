@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Unterface</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="build/style.css">
+</head>
+
+<body>
+    <header class="header">
+    </header>
+    <main>
+        <div class="container">
+            <div class="content">
+                <div class="canvas-wrapper popin">
+                    <canvas id="canvas" height="600"></canvas>
+                    <div class = "clippy">
+                      <div class="dialogue-box">
+                        <div class="dialogue-box-text" id="dialogueText">
+                        Welcome to the Unterface!
+                        </div>
+                        <div class="triangle-with-shadow"></div>
+                      </div>
+                      <img id="clippy" src="https://s-media-cache-ak0.pinimg.com/originals/50/fa/ce/50facebf9a3c8dfa632d99c60ed9909c.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="toolbar popout">
+            </div>
+        </div>
+    </main>
+    <footer class="footer popout">
+    </footer>
+
+    <script id="menu-partial" type="text/x-handlebars-template">
+        {{#each items}}
+        <li class="menu-item menu-item--{{title}}">
+            <button class="menu-link {{#if items}}menu-link--has-submenu{{/if}}">{{title}}</button>
+            {{#if items}}
+            <ul class="submenu">
+                {{> menu}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/each}}
+    </script>
+
+    <script id="header-template" type="text/x-handlebars-template">
+        <div class="topbar">
+            <img src="images/MSP-icon.png" height=100%>
+        </div>
+        <div class="menubar popin">
+            <ul class="menu">
+                {{> menu}}
+            </ul>
+        </div>
+    </script>
+
+    <script id="toolbar-template" type="text/x-handlebars-template">
+        <ul class="tools">
+            {{#each tools}}
+                <li class="tool"  title="{{this}}" id="{{this}}">
+                    <div class="tool__img" style="background-image:url(images/{{this}}.png);"></div>
+                </li>
+            {{/each}}
+        </ul>
+        <div id="spacer" class="popin"></div>
+        <div id="menu-triangle" class="triangle"></div>
+        <div id="select-submenu" class="toolbar popout">
+            <ul class="tools">
+                <li class="tool" title="select-rect" id="select-rect">
+                    <div class="tool__img" style="background-image:url(images/select.png);"></div>
+                </li>
+                <li class="tool" title="move" id="move">
+                    <div class="tool__img" style="background-image:url(images/move.png);"></div>
+                </li>
+            </ul>
+        </div>
+    </script>
+
+    <script id="footer-template" type="text/x-handlebars-template">
+        <div class="palette">
+            <div class="palette__current popin">
+                <div class="color color--background popout" style="background:white;"></div>
+                <div class="color color--foreground popout" style="background:{{currentColor}};"></div>
+            </div>
+            <div class="palette__picker">
+                <ul class="colors">
+                {{#each colors}}
+                    <li class="color color--option popin" title="{{this}}"id="{{this}}" style="background:{{this}};"></li>
+                {{/each}}
+                </ul>
+            </div>
+        </div>
+    </script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script> -->
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/handlebars.min.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/subject.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/toolbarView.js"></script>
+    <script src="js/toolbarController.js"></script>
+    <script src="js/canvasView.js"></script>
+    <script src="js/canvasController.js"></script>
+    <script src="js/footerView.js"></script>
+    <script src="js/footerController.js"></script>
+    <script src="js/headerView.js"></script>
+    <script src="js/headerController.js"></script>
+    <script src="js/clippyView.js"></script>
+    <script src="js/clippyController.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
