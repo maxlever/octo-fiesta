@@ -13,6 +13,7 @@ class ClippyController extends Controller {
       var fill = document.getElementById("fill");
       var move = document.getElementById("move");
       var canvas = document.getElementById("canvas");
+      var newcanvas = document.getElementsByClassName("menu-item--New")[0];
 
 
       var mi = document.getElementsByClassName("menu-item");
@@ -85,6 +86,13 @@ class ClippyController extends Controller {
           + "A well-designed interface would try to match the system to the real world "
           + "by filling in the area a certain color like in other painting programs, instead "
           + "of just filling in a select square with color."
+      }, false);
+
+      newcanvas.addEventListener("mousedown", function (e) {
+          dialogueText.innerHTML = "Oh no! That new tool is a little unconventinal. "
+          + "While it does give the user control and freedom to redo, a better well-designed "
+          + "interface would give users clearly marked exits and support undo-ing and re-doing "
+          + "the undesired action. "
       }, false);
     }
 }
