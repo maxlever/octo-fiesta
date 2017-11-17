@@ -103,7 +103,7 @@ class CanvasController extends Controller {
 
         this.keyHistory = "";
 
-        window.addEventListener("keyup", keyUpHandler, true);
+        $(document).off("keyup").on("keyup", keyUpHandler);
 
         function addletter(letter) {
             _this.keyHistory += letter;
