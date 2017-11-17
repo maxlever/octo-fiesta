@@ -38,8 +38,10 @@ body {
 .canvas-wrapper {
   position: relative;
   margin: 20px;
-  height: 600px;
-  width: 900px; /*also accounts for clippy size*/
+  height: 500px;
+  width: 1000px; /*also accounts for clippy size*/
+  max-height: calc(100vh - 200px);
+  max-width: calc(100vw - 150px);
   border-style: none;
   display:flex;
 }
@@ -283,5 +285,3 @@ body {
   top: 210px;
   left:35px;
 }
-
-/*# sourceMappingURL=style.css.map */
