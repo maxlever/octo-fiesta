@@ -20,11 +20,11 @@ class CanvasController extends Controller {
 
     selectSelected() {
       $("#select-submenu").toggle();
-      $("#select").click( function(e){
+      $("#select").off().on("click", function(e){
           $("#select-submenu").toggle();
       });
       let _this = this;
-      $("#move").click(function() {
+      $("#move").off().on("click", function() {
           _this.move = true;
           $("#select-submenu").toggle();
           _this.moveSelected();
@@ -33,7 +33,7 @@ class CanvasController extends Controller {
 
     moveSelected() {
         let _this = this;
-        this.canvas.on({
+        this.canvas.off().on({
             "mousemove": function(e) {
                 if (_this.move) {
                     _this.moveCanvas("move", e);
