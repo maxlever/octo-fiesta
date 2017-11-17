@@ -87,7 +87,6 @@ class CanvasController extends Controller {
 
     buildCanvasOffset(x, y) {
         this.ctx.clearRect(0, 0, this.w, this.h);
-        // console.log("Drawing offset " +  x  +" " + y);
         this.ctx.drawImage(this.image, x, y, this.w, this.h);
     }
 
