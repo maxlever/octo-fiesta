@@ -133,7 +133,7 @@ class CanvasController extends Controller {
             }
           }
         }
-        this.c.style.cursor = 'text';
+        this.c.style.cursor = 'url(../images/textcursor.png), text';
         this.canvas.click(function (e) {
             if (_this.textFlag == false) {
                 _this.textFlag = true;
