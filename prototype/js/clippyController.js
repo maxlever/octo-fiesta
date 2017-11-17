@@ -14,7 +14,7 @@ class ClippyController extends Controller {
       var move = document.getElementById("move");
       var canvas = document.getElementById("canvas");
       var newcanvas = document.getElementsByClassName("menu-item--New")[0];
-
+      var dialog = document.getElementsByClassName("error-box")[0];
 
       var mi = document.getElementsByClassName("menu-item");
 
@@ -83,10 +83,16 @@ class ClippyController extends Controller {
       }, false);
 
       fill.addEventListener("mousedown", function (e) {
-          dialogueText.innerHTML = "Oh no! That fill tool is not working like expected. "
-          + "A well-designed interface would try to match the system to the real world "
-          + "by filling in the area a certain color like in other painting programs, instead "
-          + "of just filling in a select square with color."
+          $(dialog).show();
+          $(".ok-button").off().click(function () {
+              $(dialog).hide();
+          });
+      }, false);
+      line.addEventListener("mousedown", function (e) {
+          $(dialog).show();
+          $(".ok-button").off().click(function () {
+              $(dialog).hide();
+          });
       }, false);
 
       newcanvas.addEventListener("mousedown", function (e) {

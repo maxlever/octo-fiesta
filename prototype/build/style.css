@@ -181,7 +181,8 @@ body {
   width: calc(100% - 2px);
   height: 30px;
   background: #2f5db5;
-  background: linear-gradient(#2e8cf9, #2f5db5, #2f5db5, #136ef6);
+  background-image: url(../images/dialogheader.jpg);
+  background-repeat: repeat-x;
   border-radius: 4px 4px 0px 0px;
   border-color: #1644af;
   border-width: 1px;
@@ -291,23 +292,31 @@ body {
   left: 400px;
   top: 200px;
   background: #ece9d9;
-  border: 2px solid #1644af;
-  border-radius:6px;
-  visibility: hidden;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 3px ridge #0034b0;
+  border-left: 2px solid #1783f2;
+  border-right: 2px solid #1783f2;
+  font-family: "Arial";
+  display: none;
 }
 
+.error-box .topbar {
+    border: none;
+    width: 100%;
+}
 .inner-text {
   padding: 15px;
 }
 
 .ok-button {
-  padding: 5px 5px 2px 5px; /*top right bottom left */
+  padding: 5px 5px 2px 5px;
   margin: 10px;
   margin-left: 90px;
   text-align: center;
   border: 1px solid black;
-  box-shadow: 1px 1px 1px 0px;
+  box-shadow: inset -1px -1px 1px 0px black;
   width: 50px;
+  position: relative;
 }
 
 
