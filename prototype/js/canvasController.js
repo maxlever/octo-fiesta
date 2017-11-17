@@ -64,13 +64,15 @@ class CanvasController extends Controller {
                 this.image = new Image();
                 this.image.src = this.c.toDataURL();
                 this.image.setAttribute('crossOrigin', 'anonymous');
+                this.moveStartX = this._mouseX(e);
+                this.moveStartY = this._mouseY(e);
                 break;
             case "move":
                 if( this.isDragging == true )
                 {
                     var x = this._mouseX(e);
                     var y = this._mouseY(e);
-                    this.buildCanvasOffset(x - this.w/2, y - this.h/2);
+                    this.buildCanvasOffset(x - this.moveStartX, y - this.moveStartY);
                 }
 
                 break;
