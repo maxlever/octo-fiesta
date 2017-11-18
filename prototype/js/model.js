@@ -15,7 +15,7 @@ class Model {
             "line", "select", "fill"
         ];
         this.items = [{
-            "title": "file",
+            "title": "File",
             "items": [{
                     "title": "New"
                 },
@@ -31,7 +31,7 @@ class Model {
                                     "items": [
                                             {
                                                 "title": "Sort by name",
-                                                "items": [{"title": "cat_png"}]
+                                                "items": [{"title": "cat.png"}]
                                             },
                                             {"title": "Sort by last modified"},
                                             {"title": "Sort by extension"}

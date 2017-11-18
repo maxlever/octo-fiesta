@@ -51,7 +51,7 @@
 
     <script id="menu-partial" type="text/x-handlebars-template">
         {{#each items}}
-        <li class="menu-item menu-item--{{title}}">
+        <li class="menu-item menu-item--{{slugify title}}">
             <button class="menu-link {{#if items}}menu-link--has-submenu{{/if}}">{{title}}</button>
             {{#if items}}
             <ul class="submenu">

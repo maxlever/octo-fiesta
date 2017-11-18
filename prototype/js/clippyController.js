@@ -2,104 +2,82 @@ class ClippyController extends Controller {
 
     constructor(view, model) {
         super(view, model);
+        this.dialogueText = $("#dialogueText");
+        this.errorText = $(".inner-text");
     }
 
     notify() {
-      var pencil = document.getElementById("pencil");
-      var eraser = document.getElementById("eraser");
-      var text = document.getElementById("text");
-      var line = document.getElementById("line");
-      var select = document.getElementById("select");
-      var fill = document.getElementById("fill");
-      var move = document.getElementById("move");
-      var canvas = document.getElementById("canvas");
-      var newcanvas = document.getElementsByClassName("menu-item--New")[0];
-      var dialog = document.getElementsByClassName("error-box")[0];
+        this._dialogue(".dialogue-box", "");
 
-      var mi = document.getElementsByClassName("menu-item");
+        this._dialogue("#pencil", "Oh no! That's not how a pencil should act. In a well-designed " +
+            "interface, tools should match their functions in the real world. That synchronicity " +
+            "allows users to easily understand the functions of the interface.");
 
-      var dialogueBox = document.getElementsByClassName("dialogue-box")[0];
-      var dialogueText = document.getElementById("dialogueText");
+        this._dialogue("#text", "Oh no! This text is no longer editable. In a well-designed " +
+            "interface, users are able to easily undo their previous actions. This gives users " +
+            "more control over their interactions, and reduces the time spent re-doing rather than un-doing.");
 
-      dialogueBox.addEventListener("click", function(e) {
-        dialogueText.innerHTML ="";
-      }, false);
+        this._dialogue(".menu-item--import-image button", "Hm..another menu.");
 
-      pencil.addEventListener("click", function (e) {
-          dialogueText.innerHTML = "Oh no! That's not how a pencil should act. In a well-designed "
-          + "interface, tools should match their functions in the real world. That synchronicity "
-          + "allows users to easily understand the functions of the interface."
-      }, false);
+        this._dialogue(".menu-item--from-computer button", "Yet another menu!");
 
-      text.addEventListener("click", function (e) {
-          dialogueText.innerHTML = "Oh no! This text is no longer editable. In a well-designed "
-          + "interface, users are able to easily undo their previous actions. This gives users "
-          + "more control over their interactions, and reduces the time spent re-doing rather than un-doing."
-      }, false);
+        this._dialogue(".menu-item--desktop button", "Wow, still more menus?");
 
-      mi[4].addEventListener("click", function (e) {
-          console.log("4");
-          dialogueText.innerHTML = "Hm..another menu."
-          e.stopPropagation();
-      }, false);
+        this._dialogue(".menu-item--sort-by-name button", "This is an absurd amount of menus.");
 
-      mi[6].addEventListener("click", function (e) {
-        console.log("6");
-          dialogueText.innerHTML = "Yet another menu!"
-          e.stopPropagation();
-      }, false);
+        this._dialogue(".menu-item--cat-png button", "Oh no! That sure was a lot of menus. In a well-designed " +
+            "interface, common actions are quick and often have shortcuts. This allows users to be " +
+            "more efficient.");
 
-      mi[7].addEventListener("click", function (e) {
-        console.log("7");
-          dialogueText.innerHTML = "Wow, still more menus?"
-          e.stopPropagation();
-      }, false);
+        this._dialogue(".menu-item--new button", "Oh no! That new tool is a little unconventinal. " +
+            "While it does give the user control and freedom to redo, a better well-designed " +
+            "interface would give users clearly marked exits and support undo-ing and re-doing " +
+            "the undesired action. ");
 
-      mi[8].addEventListener("click", function (e) {
-        console.log("8");
-          dialogueText.innerHTML = "This is an absurd amount of menus."
-          e.stopPropagation();
-      }, false);
+        var move = $("#move");
+        var canvas = $("#canvas");
+        var _this = this;
 
-      mi[9].addEventListener("click", function (e) {
-        console.log("9");
-          dialogueText.innerHTML = "Oh no! That sure was a lot of menus. In a well-designed "
-          + "interface, common actions are quick and often have shortcuts. This allows users to be "
-          + "more efficient."
-          e.stopPropagation();
-      }, false);
+        move.off("click.clippy").on("click.clippy", function(e) {
+            _this.dialogueText.text("Oh no! Not only is that tool hidden out of sight inside " +
+                "a submenu, it doesn't relate to the rest of the tools. A well-designed " +
+                "interface displays necessary tools where users can see them. This reduces the user's " +
+                "memory load, and allows them to learn the interface more easily.");
+            canvas.off("mousedown.clippy").on("mousedown.clippy", function(e) {
+                _this.dialogueText.text("Oh no! That move tool is acting a little funny. " +
+                    "A well-designed interface would try to match the system to the real world " +
+                    "and allow you to move a specific selected area rather than the entire canvas" +
+                    "as well as not erase everything moved outside of the main canvas area");
+            });
+        });
 
-      move.addEventListener("click", function (e) {
-          dialogueText.innerHTML =  "Oh no! Not only is that tool is hidden out of sight inside "
-          + "a submenu, it doesn't relate to the rest of the tools. A well-designed "
-          + "interface displays necessary tools where users can see them. This reduces the user's "
-          + "memory load, and allows them to learn the interface more easily."
-          canvas.addEventListener("mousedown", function (e) {
-              dialogueText.innerHTML = "Oh no! That move tool is acting a little funny. "
-              + "A well-designed interface would try to match the system to the real world "
-              + "and allow you to move a specific selected area rather than the entire canvas"
-              + "as well as not erase everything moved outside of the main canvas area"
-          }, false);
-      }, false);
+        this._error("#fill, #line", "");
+    }
 
-      fill.addEventListener("mousedown", function (e) {
-          $(dialog).show();
-          $(".ok-button").off().click(function () {
-              $(dialog).hide();
-          });
-      }, false);
-      line.addEventListener("mousedown", function (e) {
-          $(dialog).show();
-          $(".ok-button").off().click(function () {
-              $(dialog).hide();
-          });
-      }, false);
+    _error(triggerObj, text) {
+        var dialog = $(".error-box");
+        var okButton = $(".ok-button");
+        this._helper(triggerObj, this.errorText, function (e) {
+            dialog.show();
+            okButton.off("click.clippy").on("click.clippy", function() {
+                dialog.hide();
+            });
+        });
+    }
 
-      newcanvas.addEventListener("mousedown", function (e) {
-          dialogueText.innerHTML = "Oh no! That new tool is a little unconventinal. "
-          + "While it does give the user control and freedom to redo, a better well-designed "
-          + "interface would give users clearly marked exits and support undo-ing and re-doing "
-          + "the undesired action. "
-      }, false);
+    // shows the given text when the given object is clicked
+    _dialogue(triggerObj, text) {
+        this._helper(triggerObj, this.dialogueText, function(e) {
+            textPlace.text(text);
+        });
+    }
+
+    _helper(triggerObj, textPlace, handler) {
+        var obj = $(triggerObj);
+        var namespace = "clippy";
+        var trigger = "click";
+        var namespacedTrigger = trigger + "." + namespace;
+        var _this = this;
+        obj.off(namespacedTrigger).on(namespacedTrigger, handler);
     }
 }
