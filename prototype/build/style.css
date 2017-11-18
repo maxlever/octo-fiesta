@@ -319,9 +319,32 @@ body {
   position: relative;
 }
 
+.ok-button::before {
+    content: '';
+    border: 0;
+    position: absolute;
+    box-shadow: inset 1px 1px 1px 0px white;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    left: 0; }
 
+.ok-button::after {
+    content: '';
+    display: none;
+    border: 1px dotted black;
+    border-radius: 1px;
+    position: absolute;
+    width: 90%;
+    height: 75%;
+    top: 2px;
+    left: 2px; }
+.ok-button:hover::after {
+    display: block; }
 
-
-
-
-
+.ok-button::before:active, .ok-button::before:focus {
+    box-shadow: inset 1px 1px  1px 0px black;
+}
+.ok-button:active, .ok-button:focus {
+    box-shadow: inset -1px -1px 1px 0px white;
+}
