@@ -46,8 +46,7 @@ class ClippyController extends Controller {
             canvas.off("mousedown.clippy").on("mousedown.clippy", function(e) {
                 _this.dialogueText.text("Oh no! That move tool is acting a little funny. " +
                     "A well-designed interface would try to match the system to the real world " +
-                    "and allow you to move a specific selected area rather than the entire canvas" +
-                    "as well as not erase everything moved outside of the main canvas area");
+                    "and not erase everything moved outside of the main canvas area");
             });
         });
 
