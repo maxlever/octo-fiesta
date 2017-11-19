@@ -34,13 +34,11 @@ class ClippyController extends Controller {
             "interface would give users clearly marked exits and support undo-ing and re-doing " +
             "the undesired action. ");
 
-        var _this = this;
 	this._helper("#move", function(e) {
             _this.dialogueText.text("Oh no! Not only is that tool hidden out of sight inside " +
                 "a submenu, it doesn't relate to the rest of the tools. A well-designed " +
                 "interface displays necessary tools where users can see them. This reduces the user's " +
                 "memory load, and allows them to learn the interface more easily.");
-	    var _this = _this;
             _this._helper("#canvas", function(e) {
                 _this.dialogueText.text("Oh no! That move tool is acting a little funny. " +
                     "A well-designed interface would try to match the system to the real world " +
@@ -76,6 +74,7 @@ class ClippyController extends Controller {
         var namespace = "clippy";
         var trigger = "click";
         var namespacedTrigger = trigger + "." + namespace;
+	var _this = this;
         obj.off(namespacedTrigger).on(namespacedTrigger, handler);
     }
 }
