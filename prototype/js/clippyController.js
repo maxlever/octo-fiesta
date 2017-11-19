@@ -50,13 +50,14 @@ class ClippyController extends Controller {
             });
         });
 
-        this._error("#fill, #line", "");
+        this._error("#fill, #line, #select-rect", "");
     }
 
     _error(triggerObj, text) {
         var dialog = $(".error-box");
         var okButton = $(".ok-button");
-        this._helper(triggerObj, this.errorText, function (e) {
+	var textPlace = this.errorText;
+        this._helper(triggerObj, function (e) {
             dialog.show();
             okButton.off("click.clippy").on("click.clippy", function() {
                 dialog.hide();
@@ -67,12 +68,12 @@ class ClippyController extends Controller {
     // shows the given text when the given object is clicked
     _dialogue(triggerObj, text) {
 	var textPlace = this.dialogueText; 
-        this._helper(triggerObj, this.dialogueText, function(e) {
+        this._helper(triggerObj, function(e) {
             textPlace.text(text);
         });
     }
 
-    _helper(triggerObj, textPlace, handler) {
+    _helper(triggerObj, handler) {
         var obj = $(triggerObj);
         var namespace = "clippy";
         var trigger = "click";
