@@ -130,6 +130,8 @@ body {
     }
 
   .menu .menu-link {
+    border-radius: 0;
+    height: 100%;
     position: relative;
     width: 150px;
     display: block;
