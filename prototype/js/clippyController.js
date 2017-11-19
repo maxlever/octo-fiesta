@@ -34,12 +34,16 @@ class ClippyController extends Controller {
             "interface would give users clearly marked exits and support undo-ing and re-doing " +
             "the undesired action. ");
 
-	this._helper("#move", function(e) {
+        var move = $("#move");
+        var canvas = $("#canvas");
+        var _this = this;
+
+        move.off("click.clippy").on("click.clippy", function(e) {
             _this.dialogueText.text("Oh no! Not only is that tool hidden out of sight inside " +
                 "a submenu, it doesn't relate to the rest of the tools. A well-designed " +
                 "interface displays necessary tools where users can see them. This reduces the user's " +
                 "memory load, and allows them to learn the interface more easily.");
-            _this._helper("#canvas", function(e) {
+            canvas.off("mousedown.clippy").on("mousedown.clippy", function(e) {
                 _this.dialogueText.text("Oh no! That move tool is acting a little funny. " +
                     "A well-designed interface would try to match the system to the real world " +
                     "and not erase everything moved outside of the main canvas area");
