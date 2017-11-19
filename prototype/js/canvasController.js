@@ -131,9 +131,11 @@ class CanvasController extends Controller {
                 letter = letter.toUpperCase();
                 addletter(letter);
             }
+
+            $(".blinking-cursor").text(_this.keyHistory);
           }
         }
-        this.c.style.cursor = 'url(../images/textcursor.png), text';
+        this.c.style.cursor = 'url(images/textcursor.png), text';
         this.canvas.click(function (e) {
             if (_this.textFlag == false) {
                 _this.textFlag = true;
@@ -141,6 +143,12 @@ class CanvasController extends Controller {
             _this.keyHistory = "";
             _this.textX = parseInt(_this._mouseX(e));
             _this.textY = parseInt(_this._mouseY(e));
+            $(".blinking-cursor").show();
+            $(".blinking-cursor").text("a");
+            $(".blinking-cursor").css({
+                "left": e.clientX - 134,
+                "top": e.clientY - 105
+            });
             _this.c.style.cursor = '';
         });
     }
@@ -224,6 +232,7 @@ class CanvasController extends Controller {
         this.isDragging = false;
         this.move = false;
         $('#select-submenu').hide();
+        $(".blinking-cursor").hide();
         let _this = this;
         switch (this.model.tool) {
             case ("pencil"):
