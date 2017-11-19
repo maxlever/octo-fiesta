@@ -39,9 +39,7 @@ body {
   position: relative;
   margin: 20px;
   height: 500px;
-  width: 1000px; /*also accounts for clippy size*/
-  max-height: calc(100vh - 200px);
-  max-width: calc(100vw - 150px);
+  width: 700px; /*also accounts for clippy size*/
   border-style: none;
   display:flex;
 }
