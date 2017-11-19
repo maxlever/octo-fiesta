@@ -67,6 +67,7 @@ class ClippyController extends Controller {
 
     // shows the given text when the given object is clicked
     _dialogue(triggerObj, text) {
+	var textPlace = this.dialogueText; 
         this._helper(triggerObj, this.dialogueText, function(e) {
             textPlace.text(text);
         });
