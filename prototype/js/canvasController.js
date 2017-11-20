@@ -104,7 +104,7 @@ class CanvasController extends Controller {
 
         this.keyHistory = "";
 
-        $(document).off("keyup").on("keyup", keyUpHandler);
+        $(document).off("keyup.canvas").on("keyup.canvas", keyUpHandler);
 
         function addletter(letter) {
             _this.keyHistory += letter;
@@ -228,6 +228,7 @@ class CanvasController extends Controller {
 
     notify() {
         this.canvas.off();
+        $(document).off("keyup.canvas");
         this.c.style.cursor = '';
         this.isDragging = false;
         this.move = false;
