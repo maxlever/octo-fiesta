@@ -21,8 +21,11 @@ class HeaderController extends Controller {
             }
         });
 
-        $(".container, .topbar, .footer").off().off("click." + this.namespace).on("click." + this.namespace, function (e) {
-           _this.DOM.item.removeClass('selected');
+        $(document).off("click." + this.namespace).on("click." + this.namespace, function (e) {
+            if (!_this.DOM.item.is(e.target) && _this.DOM.item.has(e.target).length === 0) 
+            {
+                   _this.DOM.item.removeClass('selected');
+            }
         })
 
         function menuNew(e) {
