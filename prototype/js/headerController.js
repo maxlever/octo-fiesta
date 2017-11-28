@@ -7,7 +7,7 @@ class HeaderController extends Controller {
 
     notify() {
         let _this = this;
-        this.DOM.item.on("click." + this.namespace, function (e) {
+        this.DOM.item.off("click." + this.namespace).on("click." + this.namespace, function (e) {
             let item = $(e.target.parentElement);
             let itemName = e.target.id;
             _this.DOM.item.removeClass('selected');
@@ -21,7 +21,7 @@ class HeaderController extends Controller {
             }
         });
 
-        $(".container, .topbar, .footer").on("click." + this.namespace, function (e) {
+        $(".container, .topbar, .footer").off().off("click." + this.namespace).on("click." + this.namespace, function (e) {
            _this.DOM.item.removeClass('selected');
         })
 
