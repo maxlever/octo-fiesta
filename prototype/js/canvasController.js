@@ -242,13 +242,13 @@ class CanvasController extends Controller {
                 this.selectSelected();
                 break;
             case ("fill"):
-                this.fillSelected();
+                // this.fillSelected();
                 break;
             case ("text"):
                 this.textSelected();
                 break;
             case ("line"):
-                this.lineSelected();
+                // this.lineSelected();
                 break;
             case ("eraser"):
                 this.eraserSelected();

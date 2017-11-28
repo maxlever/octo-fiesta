@@ -355,17 +355,11 @@ body {
 .ok-button:active, .ok-button:focus {
     box-shadow: inset -1px -1px 1px 0px white;
 }
-/* from https://codepen.io/ArtemGordinsky/pen/GnLBq */
 .blinking-cursor {
   font-size: 12px;
   color: transparent;
   padding: 5px;
   border: 1px dotted rgba(0, 0, 0, 0.5);
-  /* -webkit-animation: 1s blink step-end infinite;
-  -moz-animation: 1s blink step-end infinite;
-  -ms-animation: 1s blink step-end infinite;
-  -o-animation: 1s blink step-end infinite;
-  animation: 1s blink step-end infinite; */
   position: absolute;
   top: 0;
   left: 0;
@@ -380,47 +374,7 @@ body {
 .disabled.menu-link:hover, .disabled.menu-link:focus , .disabled.menu-link:active {
     background: none !important;
 }
-/*
-@keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: black;
-  }
+.tool.disabled {
+    opacity: .2;
+    user-select: none;
 }
-
-@-moz-keyframes blink {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: black;
-  }
-}
-
-@-webkit-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: black;
-  }
-}
-
-@-ms-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: black;
-  }
-}
-
-@-o-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: black;
-  } */

@@ -50,7 +50,7 @@ class ClippyController extends Controller {
             });
         });
 
-        this._error("#fill, #line, #select-rect", "");
+        // this._error("#fill, #line, #select-rect", "");
     }
 
     _error(triggerObj, text) {

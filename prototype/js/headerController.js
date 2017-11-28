@@ -9,27 +9,33 @@ class HeaderController extends Controller {
         let _this = this;
         this.DOM.item.on("click." + this.namespace, function (e) {
             let item = $(e.target.parentElement);
-            let itemName = e.target.innerText;
+            let itemName = e.target.id;
             _this.DOM.item.removeClass('selected');
-            item.addClass('selected');
-            item.parents('.menu-item').addClass('selected');
+            if (itemName === "menu-new") {
+                menuNew(e);
+            } else if (itemName === "menu-cat-png") {
+                menuCat(e);
+            } else {
+                item.addClass('selected');
+                item.parents('.menu-item').addClass('selected');
+            }
         });
+
         $(".container, .topbar, .footer").on("click." + this.namespace, function (e) {
            _this.DOM.item.removeClass('selected');
         })
-        $(".menu-item--new button").on("click." + this.namespace, function(e) {
+
+        function menuNew(e) {
           var ctx = $('#canvas')[0].getContext('2d');
           ctx.clearRect(0, 0, canvas.width, canvas.height);
-        })
-        $(".menu-item--cat-png button").on("click." + this.namespace, function (e) {
+        }
+        function menuCat(e) {
             var ctx = $('#canvas')[0].getContext('2d');
             var base_image = new Image();
             base_image.src = 'images/cat.png';
             base_image.onload = function(){
                 ctx.drawImage(base_image, 50, 50);
             }
-            _this.DOM.item.removeClass('selected');
-            $(".menu-item--cat_png").off('click');
-        });
+        }
     }
 }

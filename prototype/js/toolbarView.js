@@ -21,6 +21,10 @@ class ToolbarView extends View {
         super.notify();
         this.DOM.tool.removeClass('selected');
         $('#' + this._getData().currentTool + '').addClass('selected');
+        var disabled = "#fill,"+
+                " #select-rect,"+
+                " #line";
+        $(disabled).addClass("disabled");
         // todo: make this less hacky
     }
 }
