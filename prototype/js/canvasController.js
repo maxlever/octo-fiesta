@@ -146,10 +146,9 @@ class CanvasController extends Controller {
             $(".blinking-cursor").show();
             $(".blinking-cursor").text("a");
             $(".blinking-cursor").css({
-                "left": e.clientX - 134,
+                "left": e.clientX - 138,
                 "top": e.clientY - 105
             });
-            _this.c.style.cursor = '';
         });
     }
 

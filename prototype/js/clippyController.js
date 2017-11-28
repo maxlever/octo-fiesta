@@ -49,7 +49,7 @@ class ClippyController extends Controller {
                     "and not erase everything moved outside of the main canvas area");
             });
         });
-	    
+
         this._error("#fill, #line, #select-rect", "");
     }
 
@@ -67,7 +67,7 @@ class ClippyController extends Controller {
 
     // shows the given text when the given object is clicked
     _dialogue(triggerObj, text) {
-	var textPlace = this.dialogueText; 
+	var textPlace = this.dialogueText;
         this._helper(triggerObj, function(e) {
             textPlace.text(text);
         });

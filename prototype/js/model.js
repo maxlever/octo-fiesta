@@ -46,7 +46,12 @@ class Model {
                 }
             ]
         }, {
-            "title": "edit"
+            "title": "edit",
+            "items": [
+                {"title": "cut"},
+                {"title": "copy"},
+                {"title": "paste"}
+            ]
         }];
         this.currentColor = 0;
         this.currentTool = 0;

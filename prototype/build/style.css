@@ -123,8 +123,10 @@ body {
       left: calc(100% - 1px);
       margin-left: 1px;
       top: 0px;
-      background: #376cc1;
       box-shadow: 3px 3px 1px 0px #7b7975; }
+     .menu .menu-item.selected > .menu-link {
+        background: #376cc1;
+     }
     .submenu {
       border: 1px solid #bfbeb4;
     }
@@ -159,6 +161,9 @@ body {
     background: #376cc1;
     color: #fff; }
     .menu .selected {
+      border: none;
+    }
+    .menu .selected > .menu-link {
       background: #376cc1;
       border: none;
       color: #fff;
@@ -367,6 +372,13 @@ body {
   display: none;
   cursor: none;
   user-select: none;
+}
+
+.disabled.menu-link {
+    color: rgba(0,0,0,.5) !important;
+}
+.disabled.menu-link:hover, .disabled.menu-link:focus , .disabled.menu-link:active {
+    background: none !important;
 }
 /*
 @keyframes "blink" {
