@@ -374,7 +374,7 @@ body {
 .disabled.menu-link:hover, .disabled.menu-link:focus , .disabled.menu-link:active {
     background: none !important;
 }
-.tool.disabled {
+.disabled.tool {
     opacity: .2;
     user-select: none;
 }
