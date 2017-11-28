@@ -6,7 +6,7 @@ class FooterController extends Controller {
 
     notify() {
         let _this = this;
-        this.DOM.color.click(function (e) {
+        this.DOM.color.off("click.footer").on("click.footer", function (e) {
             _this.model.color = $(this).index();
         });
     }
